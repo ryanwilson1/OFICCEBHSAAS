@@ -41,10 +41,13 @@
   --bg-primary:#f5f5f7;--bg-secondary:#ffffff;--bg-tertiary:#f0f0f2;--bg-elevated:#ffffff;
   --bg-glass:rgba(255,255,255,0.72);--bg-glass-hover:rgba(255,255,255,0.85);
   --bg-card:rgba(255,255,255,0.7);--bg-input:rgba(0,0,0,0.04);
-  --border-color:rgba(0,0,0,0.08);--border-active:rgba(0,0,0,0.18);
-  --text-primary:#1d1d1f;--text-secondary:#6e6e73;--text-tertiary:#aeaeb2;
+  --border-color:rgba(0,0,0,0.10);--border-active:rgba(0,0,0,0.22);
+  --text-primary:#1a1a1d;--text-secondary:#4a4a50;--text-tertiary:#7a7a82;
   --shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 16px rgba(0,0,0,0.1);
   --shadow-lg:0 12px 40px rgba(0,0,0,0.12);--shadow-glow:0 0 30px rgba(var(--accent-rgb),0.10);
+}
+[data-theme="dark"]{
+  --text-primary:#f0f0f5;--text-secondary:#b0b0ba;--text-tertiary:#78788a;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;height:100dvh;overflow:hidden;overscroll-behavior:none}
@@ -104,6 +107,53 @@ a{color:var(--accent);text-decoration:none}
   color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--transition)}
 .tbar-theme:hover{background:var(--accent-bg);color:var(--accent);border-color:var(--accent);transform:rotate(20deg)}
 .tbar-theme svg{width:17px;height:17px}
+
+/* ===================== CONTACTS ===================== */
+.contacts-view{display:none;flex-direction:column;height:100%;overflow:hidden}.contacts-view.active{display:flex}
+.ct-header{padding:24px 32px 0;display:flex;flex-direction:column;gap:16px}
+.ct-header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ct-header h1{font-size:24px;font-weight:700;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
+.ct-header h1 svg{width:24px;height:24px;color:var(--accent)}
+.ct-stats{display:flex;gap:16px;flex-wrap:wrap}
+.ct-stat{background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:10px 16px;display:flex;align-items:center;gap:8px}
+.ct-stat .ct-stat-n{font-size:20px;font-weight:700;color:var(--accent)}
+.ct-stat .ct-stat-l{font-size:11px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.5px}
+.ct-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ct-search{position:relative;flex:1;min-width:200px;max-width:400px}
+.ct-search input{width:100%;padding:9px 14px 9px 36px;background:var(--bg-input);border:1px solid var(--border-color);border-radius:var(--radius-sm);color:var(--text-primary);font-size:13px;outline:none;transition:border var(--transition)}
+.ct-search input:focus{border-color:var(--accent)}
+.ct-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--text-tertiary)}
+.ct-filter{padding:7px 14px;background:var(--bg-input);border:1px solid var(--border-color);border-radius:var(--radius-sm);color:var(--text-primary);font-size:12px;cursor:pointer;outline:none}
+.ct-body{flex:1;overflow-y:auto;padding:16px 32px 32px}
+.ct-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.ct-card{background:var(--bg-card);backdrop-filter:var(--blur);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:18px;transition:all .25s ease;display:flex;flex-direction:column;gap:12px}
+.ct-card:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow-md);transform:translateY(-2px)}
+.ct-card-top{display:flex;align-items:center;gap:12px}
+.ct-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;text-transform:uppercase;box-shadow:inset 0 -2px 4px rgba(0,0,0,0.15)}
+.ct-card-name{flex:1;min-width:0}
+.ct-card-name h4{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ct-card-name p{font-size:11px;color:var(--text-secondary);margin-top:2px;display:flex;align-items:center;gap:4px}
+.ct-card-name p svg{width:12px;height:12px;flex-shrink:0}
+.ct-card-details{display:flex;flex-direction:column;gap:6px}
+.ct-detail{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-primary);opacity:0.85}
+.ct-detail svg{width:14px;height:14px;color:var(--text-tertiary);flex-shrink:0}
+.ct-detail span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ct-card-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.ct-action{padding:6px 12px;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:var(--bg-input);color:var(--text-secondary);font-size:11px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all var(--transition);text-decoration:none}
+.ct-action:hover{background:var(--accent-bg);color:var(--accent);border-color:var(--accent)}
+.ct-action.email-btn{color:var(--accent)}
+.ct-action.whats-btn{color:#25D366}
+.ct-action.whats-btn:hover{background:rgba(37,211,102,0.12);border-color:#25D366}
+.ct-action.phone-btn{color:#30D158}
+.ct-action.phone-btn:hover{background:rgba(48,209,88,0.12);border-color:#30D158}
+.ct-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;color:var(--text-tertiary);gap:12px}
+.ct-empty svg{width:48px;height:48px;opacity:0.3}
+@media(max-width:900px){
+  .ct-header{padding:16px}
+  .ct-body{padding:12px 16px 24px}
+  .ct-grid{grid-template-columns:1fr}
+  .ct-search{max-width:none}
+}
 
 /* ===================== LOADING SCREEN ===================== */
 .loading-screen{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
@@ -444,7 +494,7 @@ a{color:var(--accent);text-decoration:none}
 /* TOAST */
 .toast-container{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));right:calc(24px + env(safe-area-inset-right));z-index:9999;display:flex;flex-direction:column;gap:8px}
 .toast{padding:10px 18px;background:var(--bg-elevated);border:1px solid var(--border-color);border-radius:var(--radius-md);
-  box-shadow:var(--shadow-md);font-size:13px;display:flex;align-items:center;gap:8px;animation:slideUp .3s ease;max-width:320px}
+  box-shadow:var(--shadow-md);font-size:13px;color:var(--text-primary);display:flex;align-items:center;gap:8px;animation:slideUp .3s ease;max-width:320px}
 .toast.success{border-left:3px solid var(--success)}.toast.error{border-left:3px solid var(--danger)}.toast.info{border-left:3px solid var(--accent)}
 
 /* PRESENTATION */
@@ -476,6 +526,32 @@ a{color:var(--accent);text-decoration:none}
 .sr-item:hover{background:var(--bg-input)}
 .sr-item h4{font-size:13px;font-weight:600}.sr-item p{font-size:11px;color:var(--text-tertiary)}
 .sr-type{font-size:10px;padding:1px 6px;border-radius:4px;font-weight:600}
+
+/* BACKGROUND COLOR SWATCHES */
+.bg-color-grid{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bg-swatch{width:32px;height:32px;border-radius:8px;cursor:pointer;border:3px solid transparent;transition:all var(--transition);position:relative}
+.bg-swatch:hover{transform:scale(1.15);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.bg-swatch.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.bg-swatch.active::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5)}
+
+/* 3D SHOWCASE FOR CORRETORES */
+.showcase-3d{perspective:1200px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:8px 0}
+.showcase-card{background:var(--bg-card);backdrop-filter:var(--blur);border:1px solid var(--border-color);border-radius:var(--radius-lg);
+  overflow:hidden;cursor:pointer;transition:transform .4s cubic-bezier(0.4,0,0.2,1),box-shadow .4s ease,border-color .3s ease;
+  transform-style:preserve-3d;position:relative}
+.showcase-card:hover{transform:translateY(-8px) rotateX(4deg) rotateY(-2deg) scale(1.02);border-color:var(--accent);
+  box-shadow:var(--shadow-glow),0 20px 60px -15px rgba(0,0,0,0.4)}
+.showcase-card-img{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.showcase-card-img .sc-3d-obj{font-size:64px;transform:translateZ(30px);transition:transform .4s ease;filter:drop-shadow(0 8px 20px rgba(0,0,0,0.3))}
+.showcase-card:hover .sc-3d-obj{transform:translateZ(50px) rotateY(15deg) scale(1.1)}
+.showcase-card-body{padding:16px}
+.showcase-card-body h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.showcase-card-body p{font-size:12px;color:var(--text-secondary);line-height:1.5}
+.showcase-card-badge{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;
+  color:#fff;backdrop-filter:blur(8px)}
+.showcase-card-actions{padding:8px 16px 16px;display:flex;gap:6px}
+.showcase-stat{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--bg-input);border-radius:var(--radius-sm);font-size:11px;font-weight:600}
+.showcase-stat svg{width:14px;height:14px;color:var(--accent)}
 
 /* Drawing surfaces: let touch gestures control drawing, not page scroll/zoom */
 .nb-page canvas,.wb-canvas-wrapper canvas{touch-action:none}
@@ -609,6 +685,9 @@ a{color:var(--accent);text-decoration:none}
 <div class="sb-item" data-v="favorites" onclick="WB.nav('favorites')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg><span class="sb-label">Favoritos</span></div>
 <div class="sb-item" data-v="library" onclick="WB.nav('library')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span class="sb-label">Biblioteca</span></div>
 <div class="sb-item" data-v="templates" onclick="WB.nav('templates')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span class="sb-label">Templates</span></div>
+<div class="sb-sec">CRM</div>
+<div class="sb-item" data-v="contacts" onclick="WB.nav('contacts')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="sb-label">Contatos</span></div>
+<div class="sb-item" data-v="showcase" onclick="WB.nav('showcase')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="sb-label">Vitrine 3D</span></div>
 <div class="sb-sec">Sistema</div>
 <div class="sb-item" data-v="settings" onclick="WB.nav('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="sb-label">Configurações</span></div>
 </div>
@@ -633,6 +712,8 @@ a{color:var(--accent);text-decoration:none}
 <div class="view library-view" id="v-favorites"></div>
 <div class="view templates-view" id="v-templates"></div>
 <div class="view settings-view" id="v-settings"></div>
+<div class="view contacts-view" id="v-contacts"></div>
+<div class="view settings-view" id="v-showcase"></div>
 </div>
 </div><!-- /app-body -->
 </div><!-- /app -->
@@ -683,7 +764,7 @@ const ACCENT_COLORS=[
 ];
 /* STATE */
 const S={
-  view:'dashboard',theme:'dark',accent:'#0A84FF',userFont:'system',userFontSize:15,lastBackup:0,
+  view:'dashboard',theme:'dark',accent:'#0A84FF',userFont:'system',userFontSize:15,lastBackup:0,bgColor:'default',
   files:[],notes:[],slides:[],workspaces:[],favorites:[],quickNotes:[],floatingNotes:[],
   sh:{data:{},active:null,rows:50,cols:20},
   writeContent:'',focusMode:false,zoom:100,
@@ -691,13 +772,14 @@ const S={
   pomo:{time:1500,run:false,iv:null,mode:'work'},
   calM:new Date().getMonth(),calY:new Date().getFullYear(),
   slideIdx:0,nbPage:'ruled',pdfUrl:'',libView:'grid',
-  notesFolder:'Todas'
+  notesFolder:'Todas',
+  contacts:[],contactSearch:'',contactFilter:'Todos'
 };
 
 function init(){
   load();
   ['dashboard','write','sheets','slides','notes','notebook','whiteboard','pdf','workspaces','favorites','library','templates','settings'].forEach(v=>window['render_'+v]?.());
-  render_dashboard();render_write();render_sheets();render_slides();render_notes();render_notebook();render_whiteboard();render_pdf();render_workspaces();render_library();render_favorites();render_templates();render_settings();
+  render_dashboard();render_write();render_sheets();render_slides();render_notes();render_notebook();render_whiteboard();render_pdf();render_workspaces();render_library();render_favorites();render_templates();render_settings();render_contacts();render_showcase();
   applyTheme();mtTab('calc');nav(S.view||'dashboard');renderTopbarColors();
   setInterval(()=>{const p=document.getElementById('wPage');if(p)S.writeContent=p.innerHTML;save();},5000);
   restoreFloatingNotes();
@@ -765,7 +847,7 @@ function nav(v){S.view=v;document.querySelectorAll('.view').forEach(e=>e.classLi
   const el=document.getElementById('v-'+v);if(el)el.classList.add('active');
   document.querySelectorAll('.sb-item').forEach(i=>i.classList.toggle('active',i.dataset.v===v));
   if(v==='whiteboard')initWB();if(v==='notebook')initNB();if(v==='notes')renderNotesList();
-  if(v==='library')renderLibContent();if(v==='favorites')renderFavContent();save();
+  if(v==='library')renderLibContent();if(v==='favorites')renderFavContent();if(v==='contacts')renderContactsList();if(v==='showcase')render_showcase();save();
   if(window.innerWidth<=900)toggleSidebar(false);}
 
 /* MOBILE SIDEBAR (phones/iPad portrait) */
@@ -805,7 +887,7 @@ function applyTheme(){document.documentElement.setAttribute('data-theme',S.theme
     :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
   const tcm=document.getElementById('themeColorMeta');
   if(tcm)tcm.setAttribute('content',getComputedStyle(document.documentElement).getPropertyValue('--bg-secondary').trim()||(S.theme==='dark'?'#18181b':'#ffffff'));
-  renderTopbarColors();}
+  renderTopbarColors();applyBgColor();}
 function toggleTheme(){S.theme=S.theme==='dark'?'light':'dark';applyTheme();save();toast('Tema alterado','info');}
 
 function toast(m,t='info'){const c=document.getElementById('toasts'),e=document.createElement('div');e.className='toast '+t;e.textContent=m;c.appendChild(e);setTimeout(()=>{e.style.opacity='0';setTimeout(()=>e.remove(),300);},3000);}
@@ -821,7 +903,7 @@ const el=document.getElementById('v-dashboard');
 el.innerHTML=`<div class="dash-header"><div class="dash-greeting"><h1>${g} 👋</h1><p>${new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</p></div><div style="display:flex;gap:8px"><button class="btn btn-icon" onclick="WB.toggleTheme()" title="Tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="btn btn-icon" onclick="WB.toggleMT()" title="Ferramentas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10h10M7 14h6"/></svg></button></div></div>
 <div><div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Criar novo</div>
 <div class="quick-create">
-${[['write','Documento','Editor de texto','#0A84FF'],['sheets','Planilha','Dados e fórmulas','#30D158'],['slides','Apresentação','Slides visuais','#FF9F0A'],['notes','Nota','Anotações','#BF5AF2'],['notebook','Caderno','Escrita livre','#FF375F'],['whiteboard','Quadro','Whiteboard','#64D2FF'],['pdf','Abrir PDF','Leitor PDF','#FFD60A']].map(([v,l,s,c])=>`<div class="qc-card" onclick="WB.newFile('${v}')"><div class="qc-icon" style="background:${c}22"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="qc-label">${l}</span><span class="qc-sub">${s}</span></div>`).join('')}
+${[['write','Documento','Editor de texto','#0A84FF'],['sheets','Planilha','Dados e fórmulas','#30D158'],['slides','Apresentação','Slides visuais','#FF9F0A'],['notes','Nota','Anotações','#BF5AF2'],['notebook','Caderno','Escrita livre','#FF375F'],['whiteboard','Quadro','Whiteboard','#64D2FF'],['pdf','Abrir PDF','Leitor PDF','#FFD60A'],['contacts','Contatos','Clientes','#FF6B6B']].map(([v,l,s,c])=>`<div class="qc-card" onclick="WB.newFile('${v}')"><div class="qc-icon" style="background:${c}22"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="qc-label">${l}</span><span class="qc-sub">${s}</span></div>`).join('')}
 </div></div>
 <div><div class="section-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Recentes</div><div class="recent-grid" id="recentGrid"></div></div>`;
   const grid=document.getElementById('recentGrid');let items=S.notes.filter(n=>!n.deleted).slice(0,6).map(n=>({t:'note',title:n.title,prev:(n.content||'').replace(/<[^>]*>/g,'').substring(0,60),date:n.date,color:'#BF5AF2',id:n.id}));
@@ -1059,6 +1141,7 @@ el.innerHTML=`<h1 style="font-size:24px;font-weight:700">Configurações</h1>
 <div class="setting-row"><label>Cor de destaque</label><div class="color-grid">${colors.map(c=>`<div class="color-swatch ${S.accent===c?'active':''}" style="background:${c}" onclick="WB.setAccent('${c}')"></div>`).join('')}</div></div>
 <div class="setting-row"><label>Fonte</label><select class="tb-select" onchange="WB.setFont(this.value)" style="width:140px"><option value="system" ${S.userFont==='system'?'selected':''}>System (padrão)</option><option value="serif" ${S.userFont==='serif'?'selected':''}>Serif (Georgia)</option><option value="mono" ${S.userFont==='mono'?'selected':''}>Monospace</option><option value="inter" ${S.userFont==='inter'?'selected':''}>Segoe UI</option></select></div>
 <div class="setting-row"><label>Tamanho da fonte: ${S.userFontSize}px</label><input type="range" min="12" max="22" value="${S.userFontSize}" style="width:120px;accent-color:var(--accent)" oninput="WB.setFontSize(this.value)"></div>
+<div class="setting-row"><label>Cor de fundo</label><div class="bg-color-grid">${BG_COLORS.map(bg=>`<div class="bg-swatch ${(S.bgColor||'default')===bg.c?'active':''}" style="background:${S.theme==='dark'?bg.dark:bg.light};box-shadow:inset 0 0 0 1px rgba(128,128,128,0.3)" title="${bg.n}" onclick="WB.setBgColor('${bg.c}')"></div>`).join('')}</div></div>
 </div>
 <div class="settings-section"><h3>Dados</h3>
 <div style="background:var(--accent-bg);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:12px;font-size:12px;color:var(--text-secondary);margin-bottom:14px;line-height:1.6">
@@ -1068,7 +1151,7 @@ el.innerHTML=`<h1 style="font-size:24px;font-weight:700">Configurações</h1>
 <div class="setting-row"><label>Restaurar backup</label><button class="btn btn-sm" onclick="document.getElementById('restoreIn').click()">Importar</button><input type="file" id="restoreIn" accept=".json" style="display:none" onchange="WB.restoreData(event)"></div>
 <div class="setting-row"><label>Limpar tudo</label><button class="btn btn-sm" style="color:var(--danger)" onclick="if(confirm('Apagar todos os dados? Isso não pode ser desfeito. Exporte um backup antes se quiser manter suas informações.')){localStorage.clear();location.reload();}">Limpar</button></div>
 </div>
-<div class="settings-section"><h3>Sobre</h3><div class="setting-row"><label>WORKBOOK v2.0 — Premium Workspace</label><span style="font-size:11px;color:var(--text-tertiary)">Todos os módulos ativos</span></div></div>`;}
+<div class="settings-section"><h3>Sobre</h3><div class="setting-row"><label>WORKBOOK v2.1 — Premium Workspace</label><span style="font-size:11px;color:var(--text-secondary)">CRM + Vitrine 3D + Todos os módulos ativos</span></div></div>`;}
 function setAccent(c){S.accent=c;applyTheme();render_settings();renderTopbarColors();save();toast('Cor atualizada','success');}
 function setFont(f){S.userFont=f;applyTheme();save();}
 function setFontSize(s){S.userFontSize=parseInt(s);applyTheme();render_settings();save();}
@@ -1145,6 +1228,227 @@ function updateFN(id,t){const f=S.floatingNotes.find(x=>x.id===id);if(f){f.text=
 function removeFN(id){S.floatingNotes=S.floatingNotes.filter(x=>x.id!==id);document.getElementById(id)?.remove();save();toast('Post-it removido','info');}
 function restoreFloatingNotes(){S.floatingNotes.forEach(fn=>createFNEl(fn));}
 
+/* ===================== CONTACTS MODULE ===================== */
+const DEFAULT_CONTACTS=[
+{id:'c1',nome:'DANIELLA PAVAN BEGA',bairro:'Cerâmica',end:'R. Tupi, 322',fone:'932',cod:'09530531',email:'danielapbega@gmail.com'},
+{id:'c2',nome:'OSVALDO CORREA DA SILVA',bairro:'Osvaldo Cruz',end:'R. São Paulo, 999',fone:'335',cod:'09530211',email:'rodrigo.otsuri@yahoo.com.br'},
+{id:'c3',nome:'RODRIGO OTSURI AUGUSTINHO',bairro:'Santa Paula',end:'R. Rio de Janeiro, 335 Bl B Copacabana',fone:'99',cod:'09540401',email:'rodrigo.otsuri@yahoo.com.br'},
+{id:'c4',nome:'VANESSA MARTINEZ BARILLI',bairro:'Jardim São Caetano',end:'Av. Wenceslau Brás, 97',fone:'1494',cod:'09541200',email:'vanessa.martinezb@hotmail.com'},
+{id:'c5',nome:'ALEX ROSQUE ORTIZ',bairro:'Santa Paula',end:'R. Piauí, 400',fone:'97',cod:'09540401',email:'alex.rosque@gmail.com'},
+{id:'c6',nome:'BRUNO MILANI',bairro:'Osvaldo Cruz',end:'Av. Amazonas, 1494',fone:'400',cod:'09540901',email:'bruno.milani@itau-unibanco.com.br'},
+{id:'c7',nome:'MARIO PACHECO DE ALMEIDA',bairro:'Santa Paula',end:'R. Piauí, 400',fone:'931',cod:'09541300',email:'mariopacheco@gmail.com'},
+{id:'c8',nome:'JORGE YAGUNUMA',bairro:'Cerâmica',end:'R. São Paulo, 931',fone:'360',cod:'09530131',email:'jorge.yagunuma@yahoo.com.br'},
+{id:'c9',nome:'ROBERTA DA SILVA COLOGNESI',bairro:'Santa Paula',end:'R. NS de Fátima, 360',fone:'273',cod:'09540101',email:'roberta.colognesi@yahoo.com.br'},
+{id:'c10',nome:'RODRIGO MOREIRA SILVA BARBOSA',bairro:'Osvaldo Cruz',end:'R. VCS de Grinhalma, 273',fone:'868',cod:'09571000',email:'rodrigo.barbosa@hotmail.com'},
+{id:'c11',nome:'SANDRA CRISTINA QUADRADO ROSA',bairro:'Santa Paula',end:'R. Mal. Deodoro, 52',fone:'1340',cod:'09541300',email:'sandra.cqr@hotmail.com'},
+{id:'c12',nome:'ANGELICA CATARINA CAMPOS BREVES',bairro:'Santo Antônio',end:'R. Goiás, 935',fone:'52',cod:'09530121',email:'angelicacbr@gmail.com'},
+{id:'c13',nome:'GRACIELE SANTOS PEREIRA',bairro:'Cerâmica',end:'R. Goiás, 935',fone:'935',cod:'09530121',email:'gracielesp19@hotmail.com'},
+{id:'c14',nome:'JOSÉ CARLOS RODRIGUES',bairro:'Santo Antônio',end:'R. São Paulo, 1340',fone:'322',cod:'09530530',email:'josecarlosrodrigues@hotmail.com'},
+{id:'c15',nome:'LUCIENE OLIVEIRA DE SOLICH',bairro:'Santa Paula',end:'R. Afonso, 771',fone:'229',cod:'09541400',email:'luciene.solich@gmail.com'},
+{id:'c16',nome:'MARIA FERNANDA LARANJEIRA DA SILVA',bairro:'Cerâmica',end:'R. Tupi, 322',fone:'322',cod:'09530310',email:'dessinerre@hotmail.com'},
+{id:'c17',nome:'MARIANA CRISTINA COELHO ALVES',bairro:'Santa Paula',end:'R. São Paulo, 771',fone:'771',cod:'09530211',email:'marianacoelho@hotmail.com'},
+{id:'c18',nome:'ROBSON MARCATO',bairro:'Jardim São Caetano',end:'Av. Pres. Kennedy, 1559',fone:'1559',cod:'09581600',email:'robson.marcato@gmail.com'},
+{id:'c19',nome:'DANIEL NARDI MORENO',bairro:'Santa Paula',end:'R. Alegre, 156 Bl C',fone:'156',cod:'09550010',email:'daniel.nmoreno@gmail.com'},
+{id:'c20',nome:'DANIELA PARRA MARCATO',bairro:'Santo Antônio',end:'R. Espírito Santo, 200',fone:'200',cod:'09555030',email:'danielaparra@hotmail.com'},
+{id:'c21',nome:'LEONARDO DE MATOS',bairro:'Santa Paula',end:'R. Alegre, 1093 Ed Vincita',fone:'1093',cod:'09530250',email:'leonardo.matos@hotmail.com'},
+{id:'c22',nome:'MICHELLY VERONESI GREC',bairro:'Osvaldo Cruz',end:'R. Floriano Peixoto, 134 Ed Estilo',fone:'134',cod:'09541350',email:'michelly.grec@hotmail.com'},
+{id:'c23',nome:'SIMONE PIRES DO AMARAL SANTOS',bairro:'Santa Paula',end:'R. Rio de Janeiro, 335 Bl B Leblon',fone:'335',cod:'09540400',email:'simonepires@hotmail.com'},
+{id:'c24',nome:'PAULO HENRIQUE VISCAI CARVALHO',bairro:'Cerâmica',end:'R. Antônio Bento, 24',fone:'24',cod:'09520050',email:'paulohenrique.vc@yahoo.com.br'},
+{id:'c25',nome:'GIANE APARECIDA BITTENCOURT',bairro:'Cerâmica',end:'R. Gonçalves Dias, 168',fone:'168',cod:'09530580',email:'giane.bittencourt@yahoo.com.br'},
+{id:'c26',nome:'FLAVIO APARECIDO BARROSO',bairro:'Santa Paula',end:'R. Martim Francisco, 366 Ed Parati',fone:'366',cod:'09541330',email:'flavio.barroso@gmail.com'},
+{id:'c27',nome:'ARLEY D OLIVEIRA CAMPOS FIGUEIREDO',bairro:'Osvaldo Cruz',end:'R. São Jorge, 604 Bl Monet',fone:'604',cod:'09570410',email:'arley.figueiredo@gmail.com'},
+{id:'c28',nome:'FERNANDO DE CARVALHO',bairro:'Santa Paula',end:'R. Serafim Carlos, 649',fone:'649',cod:'09541320',email:'fe.carvalho@gmail.com'},
+{id:'c29',nome:'MAFALDA THEREZA PIZOL TIBERIO',bairro:'Santo Antônio',end:'R. Gen. Osório, 363 Ed Marina Giacomo',fone:'363',cod:'09571200',email:'mafalda.tiberio@gmail.com'},
+{id:'c30',nome:'NATALIA SASSO CARDOSO',bairro:'Santa Paula',end:'R. Roma, 77',fone:'77',cod:'09557120',email:'naty_sasso@yahoo.com.br'},
+{id:'c31',nome:'RODRIGO BARBONUEVO FELICIANO',bairro:'Cerâmica',end:'R. NS de Fátima, 393',fone:'55',cod:'09540100',email:'feliciano.rodrigo@yahoo.com.br'},
+{id:'c32',nome:'ANDRÉ MUNARI',bairro:'Santa Paula',end:'R. Cnso Lafayette, 450',fone:'450',cod:'09550000',email:'andre.munari@terra.com.br'},
+{id:'c33',nome:'ERIK RODRIGUES SCHWARZ',bairro:'Santa Paula',end:'R. Dr. Augusto de Toledo, 888',fone:'888',cod:'09540080',email:'erik.schwarz@gmail.com'},
+{id:'c34',nome:'FÁBIO RODRIGUES LOPES',bairro:'Santa Paula',end:'R. Alegre, 156 Bl 1',fone:'156',cod:'09550250',email:'fabiorlopes@hotmail.com'},
+{id:'c35',nome:'KARINA MANSSINI INTATILO',bairro:'Cerâmica',end:'R. Ten Antônio João, 581',fone:'581',cod:'09530460',email:'karina.intatilo@gmail.com'},
+{id:'c36',nome:'MARLENE RIBEIRO TONDATO',bairro:'Santa Paula',end:'R. Mal. Deodoro, 597',fone:'597',cod:'09541300',email:'marlene.tondato@gmail.com'},
+{id:'c37',nome:'MARIA PEREIRA MENDES BARBOSA',bairro:'Santa Paula',end:'R. Nil Peçanha, 100',fone:'100',cod:'09540830',email:'maria.mendes@gmail.com'},
+{id:'c38',nome:'MILTON CARLOS DOS SANTOS SILVA',bairro:'Santo Antônio',end:'Av. Goiás, 935',fone:'935',cod:'09521330',email:'milton.santos@gmail.com'},
+{id:'c39',nome:'LUCIANA DUENHA LUZ CAVALCANTE',bairro:'Santa Paula',end:'Av. Papa Augusto Bl XXIII, 541',fone:'541',cod:'09558160',email:'luciana.duenha@gmail.com'},
+{id:'c40',nome:'TATIANE TORNALIERI BLACK',bairro:'Santo Antônio',end:'R. São Jorge, 604 Bl Monet',fone:'604',cod:'09553025',email:'tatiane.black@gmail.com'},
+{id:'c41',nome:'DENIS HONORATO MOREIRA',bairro:'Osvaldo Cruz',end:'R. Osvaldo Cruz, 1762',fone:'1762',cod:'09540200',email:'denismoreira100@gmail.com'},
+{id:'c42',nome:'MARCIO RODRIGO LUCHT PAULINO',bairro:'Santa Paula',end:'R. Rio de Janeiro, 335 Bl B Copacabana',fone:'335',cod:'09540081',email:'marcio.lucht@gmail.com'},
+{id:'c43',nome:'SELMA LUISA CAVALCANTE CREPALDI',bairro:'Osvaldo Cruz',end:'R. São Paulo, 604 Bl Monet',fone:'604',cod:'09530400',email:'selma.crepaldi@hotmail.com'},
+{id:'c44',nome:'RENATO VIEIRA',bairro:'Santo Antônio',end:'R. Rio de Janeiro, 545',fone:'545',cod:'09530435',email:'renato.vieira@hotmail.com'},
+{id:'c45',nome:'ALVARO MAURICIO CABRAL PIZARRO',bairro:'Cerâmica',end:'R. Rafael Corrêa Sampaio, 70',fone:'70',cod:'09575835',email:'almpizarro@hotmail.com'},
+{id:'c46',nome:'FABIANA MAYUMI TENROPAOLO',bairro:'Santa Paula',end:'Av. Dr. Augusto, 55 Bl Infinity 1542',fone:'55',cod:'09540150',email:'fabi.251818@gmail.com'},
+{id:'c47',nome:'GISELE DE BRITO PIETROPAOLO',bairro:'Osvaldo Cruz',end:'R. Amazonas, 1720',fone:'1720',cod:'09539036',email:'gisele.pietropaolo@gmail.com'},
+{id:'c48',nome:'NEIDE GOMES FIGUEIRA',bairro:'Santo Antônio',end:'R. Maranhão, 344',fone:'344',cod:'09540203',email:'marcio.figueira@gmail.com'},
+{id:'c49',nome:'ELISANGELA FARAI LEITE',bairro:'Santa Paula',end:'R. Maranhão, 291 Ed Felicitar',fone:'291',cod:'09541000',email:'elisangela.farai1977@gmail.com'},
+{id:'c50',nome:'ADRIANA PIMENTEL FONSECA',bairro:'Cerâmica',end:'R. Saldanha Marinho, 33',fone:'33',cod:'09553110',email:'dri.pimentel@uol.com.br'},
+{id:'c51',nome:'ANDERSON LUIS GONÇALVES',bairro:'Cerâmica',end:'R. Monte Alegre, 33',fone:'33',cod:'09553130',email:'garcia.andre.santos@gmail.com'},
+{id:'c52',nome:'ANDRÉ EMÍLIO BELO GARCIA',bairro:'Santa Paula',end:'R. Ten Antônio João, 581',fone:'581',cod:'09530460',email:'douglas.belo@gmail.com'},
+{id:'c53',nome:'DOUGLAS ALADÓR FRANCO MARTINS',bairro:'Osvaldo Cruz',end:'R. Porcelana, 55 Bl Confort',fone:'55',cod:'09541150',email:'lucio.bittencourt@me.com'},
+{id:'c54',nome:'ROGÉRIO MARTINS CAVALCANTE',bairro:'Santa Paula',end:'R. Cnso Lafayette, 1506',fone:'1506',cod:'09540000',email:'rogerio.cavalcante@terra.com.br'},
+{id:'c55',nome:'REGINALDO DE ALMEIDA SOUZA',bairro:'Santo Antônio',end:'R. Rio de Janeiro, 335',fone:'335',cod:'09550000',email:'reginaldo.souza@terra.com.br'},
+{id:'c56',nome:'ANDERSON DE ESCARAMELLO',bairro:'Santa Paula',end:'R. Maranhão, 109',fone:'109',cod:'09541000',email:'ascasiano.abelis@gmail.com'},
+{id:'c57',nome:'GRAZIELA BRIDES DOS SANTOS',bairro:'Cerâmica',end:'R. São Paulo, 931',fone:'931',cod:'09553130',email:'brides@gmail.com'},
+{id:'c58',nome:'CASSIANO RABELLO',bairro:'Santo Antônio',end:'R. São Paulo, 111',fone:'111',cod:'09530211',email:'cassiano.rabello@terra.com.br'},
+{id:'c59',nome:'MARIA APARECIDA MARTINS DA SILVA',bairro:'Santa Paula',end:'R. Saldanha Giuliano, 291',fone:'291',cod:'09553130',email:'mulheresformosas@hotmail.com'},
+{id:'c60',nome:'ROSMERE ROSA OLIVEIRA',bairro:'Osvaldo Cruz',end:'R. Wenceslau Brás, 231 Bl 1',fone:'231',cod:'09541200',email:'taniamartinaez@bb.com.br'},
+{id:'c61',nome:'TANIA REGINA MARTINEZ DO PRADO',bairro:'Santa Paula',end:'R. Wenceslau Brás, 231 Bl 1',fone:'569',cod:'09571425',email:'tania.prado@hotmail.com'},
+];
+
+function initContacts(){if(!S.contacts||!S.contacts.length)S.contacts=DEFAULT_CONTACTS.map(c=>({...c}));}
+function render_contacts(){
+  initContacts();
+  const el=document.getElementById('v-contacts');if(!el)return;
+  el.innerHTML=`<div class="ct-header">
+    <div class="ct-header-top">
+      <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Contatos de Clientes</h1>
+      <div class="ct-stats">
+        <div class="ct-stat"><span class="ct-stat-n" id="ctTotal">0</span><span class="ct-stat-l">Total</span></div>
+        <div class="ct-stat"><span class="ct-stat-n" id="ctBairros">0</span><span class="ct-stat-l">Bairros</span></div>
+      </div>
+    </div>
+    <div class="ct-controls">
+      <div class="ct-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Buscar por nome, bairro, endereço ou e-mail..." id="ctSearchInput" oninput="WB.searchContacts(this.value)"></div>
+      <select class="ct-filter" id="ctBairroFilter" onchange="WB.filterContacts(this.value)"><option value="Todos">Todos os Bairros</option></select>
+      <button class="btn btn-primary btn-sm" onclick="WB.addContact()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Novo</button>
+    </div>
+  </div>
+  <div class="ct-body"><div class="ct-grid" id="ctGrid"></div></div>`;
+  renderContactsList();
+}
+
+const CT_COLORS=['#FF6B6B','#4ECDC4','#45B7D1','#96CEB4','#FFEAA7','#DDA0DD','#98D8C8','#F7DC6F','#BB8FCE','#85C1E9','#F1948A','#82E0AA','#F0B27A','#AED6F1','#D2B4DE','#A3E4D7'];
+function ctColor(name){let h=0;for(let i=0;i<name.length;i++)h=name.charCodeAt(i)+((h<<5)-h);return CT_COLORS[Math.abs(h)%CT_COLORS.length];}
+function ctInitials(name){const p=name.split(' ').filter(w=>w.length>2);return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():name.substring(0,2).toUpperCase();}
+
+function renderContactsList(){
+  const grid=document.getElementById('ctGrid');if(!grid)return;
+  const search=(S.contactSearch||'').toLowerCase();
+  const filter=S.contactFilter||'Todos';
+  let list=S.contacts.filter(c=>{
+    if(filter!=='Todos'&&c.bairro!==filter)return false;
+    if(search){const s=search;return(c.nome||'').toLowerCase().includes(s)||(c.bairro||'').toLowerCase().includes(s)||(c.end||'').toLowerCase().includes(s)||(c.email||'').toLowerCase().includes(s);}
+    return true;
+  });
+  list.sort((a,b)=>(a.nome||'').localeCompare(b.nome||''));
+  document.getElementById('ctTotal').textContent=list.length;
+  const bairros=[...new Set(S.contacts.map(c=>c.bairro).filter(Boolean))].sort();
+  document.getElementById('ctBairros').textContent=bairros.length;
+  const sel=document.getElementById('ctBairroFilter');
+  if(sel){const cur=sel.value;sel.innerHTML='<option value="Todos">Todos os Bairros</option>'+bairros.map(b=>`<option value="${b}"${b===filter?' selected':''}>${b}</option>`).join('');}
+
+  if(!list.length){grid.innerHTML=`<div class="ct-empty" style="grid-column:1/-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>Nenhum contato encontrado</p></div>`;return;}
+
+  grid.innerHTML=list.map(c=>{
+    const col=ctColor(c.nome||'');
+    const ini=ctInitials(c.nome||'');
+    const emailLink=c.email?`<a class="ct-action email-btn" href="mailto:${c.email}" title="Enviar e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> E-mail</a>`:'';
+    const whatsLink=c.fone?`<a class="ct-action whats-btn" href="https://wa.me/55${c.fone.replace(/\D/g,'')}" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> WhatsApp</a>`:'';
+    const phoneLink=c.fone?`<a class="ct-action phone-btn" href="tel:${c.fone}" title="Ligar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Ligar</a>`:'';
+    return`<div class="ct-card">
+      <div class="ct-card-top">
+        <div class="ct-avatar" style="background:${col}">${ini}</div>
+        <div class="ct-card-name"><h4>${c.nome}</h4><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${c.bairro||'—'}</p></div>
+        <button class="btn btn-icon btn-sm" onclick="WB.delContact('${c.id}')" title="Excluir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+      </div>
+      <div class="ct-card-details">
+        ${c.end?`<div class="ct-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>${c.end}</span></div>`:''}
+        ${c.email?`<div class="ct-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>${c.email}</span></div>`:''}
+        ${c.cod?`<div class="ct-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10h10M7 14h6"/></svg><span>CEP: ${c.cod}</span></div>`:''}
+      </div>
+      <div class="ct-card-actions">${emailLink}${whatsLink}${phoneLink}</div>
+    </div>`;
+  }).join('');
+}
+
+function searchContacts(v){S.contactSearch=v;renderContactsList();}
+function filterContacts(v){S.contactFilter=v;renderContactsList();}
+function addContact(){
+  const html=`<div style="display:flex;flex-direction:column;gap:10px">
+    <input id="ctNewNome" class="conv-input" placeholder="Nome completo">
+    <input id="ctNewBairro" class="conv-input" placeholder="Bairro">
+    <input id="ctNewEnd" class="conv-input" placeholder="Endereço">
+    <input id="ctNewFone" class="conv-input" placeholder="Telefone">
+    <input id="ctNewEmail" class="conv-input" placeholder="E-mail">
+    <input id="ctNewCod" class="conv-input" placeholder="CEP">
+    <button class="btn btn-primary" onclick="WB.saveNewContact()">Salvar Contato</button>
+  </div>`;
+  showModal('Novo Contato',html);
+}
+function saveNewContact(){
+  const nome=document.getElementById('ctNewNome')?.value.trim();
+  if(!nome){toast('Informe o nome do contato','error');return;}
+  const c={id:'c'+Date.now(),nome:nome.toUpperCase(),bairro:document.getElementById('ctNewBairro')?.value.trim()||'',end:document.getElementById('ctNewEnd')?.value.trim()||'',fone:document.getElementById('ctNewFone')?.value.trim()||'',email:document.getElementById('ctNewEmail')?.value.trim()||'',cod:document.getElementById('ctNewCod')?.value.trim()||''};
+  S.contacts.push(c);save();renderContactsList();
+  document.querySelector('.modal-overlay')?.classList.remove('active');
+  toast('Contato adicionado com sucesso!','success');
+}
+function delContact(id){if(!confirm('Excluir este contato?'))return;S.contacts=S.contacts.filter(c=>c.id!==id);save();renderContactsList();toast('Contato excluído','info');}
+
+/* 3D SHOWCASE — Vitrine Imobiliária para Corretores */
+function render_showcase(){const el=document.getElementById('v-showcase');if(!el)return;
+const imoveis=[
+{emoji:'🏢',tipo:'Apartamento',titulo:'Cobertura Duplex Cerâmica',desc:'Vista panorâmica, 3 suítes, piscina privativa, 2 vagas. Acabamento de alto padrão com home theater.',area:'220m²',quartos:3,valor:'R$ 1.850.000',badge:'Destaque',badgeColor:'linear-gradient(135deg,#FF6B6B,#ee5a24)',bg:'linear-gradient(135deg,#667eea22,#764ba222)'},
+{emoji:'🏠',tipo:'Casa',titulo:'Sobrado Jardim São Caetano',desc:'Terreno 300m², 4 quartos, quintal com churrasqueira, garagem 3 carros. Próx. ao parque.',area:'280m²',quartos:4,valor:'R$ 1.200.000',badge:'Novo',badgeColor:'linear-gradient(135deg,#30D158,#0A84FF)',bg:'linear-gradient(135deg,#11998e22,#38ef7d22)'},
+{emoji:'🏬',tipo:'Comercial',titulo:'Sala Comercial Santa Paula',desc:'Ponto nobre, 2 banheiros, recepção, copa. Ideal para escritório ou consultório.',area:'95m²',quartos:0,valor:'R$ 680.000',badge:'Oportunidade',badgeColor:'linear-gradient(135deg,#FFD60A,#FF9F0A)',bg:'linear-gradient(135deg,#f7971e22,#ffd20022)'},
+{emoji:'🏗️',tipo:'Lançamento',titulo:'Residencial Vita — Santo Antônio',desc:'Studios e 2 dorms, área de lazer completa, rooftop, coworking, pet place. Entrega 2027.',area:'38-68m²',quartos:2,valor:'A partir de R$ 420.000',badge:'Lançamento',badgeColor:'linear-gradient(135deg,#8B5CF6,#EC4899)',bg:'linear-gradient(135deg,#a18cd122,#fbc2eb22)'},
+{emoji:'🏡',tipo:'Terreno',titulo:'Terreno Osvaldo Cruz',desc:'Terreno plano 450m², escriturado, pronto para construir. Rua asfaltada com infra completa.',area:'450m²',quartos:0,valor:'R$ 890.000',badge:'Exclusivo',badgeColor:'linear-gradient(135deg,#06B6D4,#0A84FF)',bg:'linear-gradient(135deg,#4facfe22,#00f2fe22)'},
+{emoji:'🏢',tipo:'Apartamento',titulo:'2 Dorms Reformado — Cerâmica',desc:'Todo reformado, armários planejados, 1 vaga, portaria 24h. Próx. metrô e comércio.',area:'65m²',quartos:2,valor:'R$ 480.000',badge:'Reformado',badgeColor:'linear-gradient(135deg,#96CEB4,#45B7D1)',bg:'linear-gradient(135deg,#89f7fe22,#66a6ff22)'}
+];
+el.innerHTML=`<div style="padding:32px;overflow-y:auto;flex:1">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+<div><h1 style="font-size:26px;font-weight:800;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px">
+<span style="font-size:32px">🏠</span> Vitrine Imobiliária 3D</h1>
+<p style="color:var(--text-secondary);font-size:13px;margin-top:4px">Apresentação interativa de imóveis para seus clientes — passe o mouse para efeito 3D</p></div>
+<div style="display:flex;gap:8px">
+<button class="btn btn-primary btn-sm" onclick="WB.addShowcaseItem()">+ Adicionar Imóvel</button>
+<button class="btn btn-sm" onclick="WB.shareShowcase()">🔗 Compartilhar</button>
+</div></div>
+<div class="showcase-3d">${imoveis.map((im,i)=>`
+<div class="showcase-card" style="animation:slideUp .4s ease ${i*0.08}s both">
+<div class="showcase-card-img" style="background:${im.bg}">
+<div class="sc-3d-obj">${im.emoji}</div>
+<div class="showcase-card-badge" style="background:${im.badgeColor}">${im.badge}</div>
+</div>
+<div class="showcase-card-body">
+<span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:700">${im.tipo}</span>
+<h4>${im.titulo}</h4>
+<p>${im.desc}</p>
+</div>
+<div class="showcase-card-actions">
+<div class="showcase-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>${im.area}</div>
+${im.quartos?`<div class="showcase-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/></svg>${im.quartos} qts</div>`:''}
+<div style="flex:1"></div>
+<span style="font-size:13px;font-weight:700;color:var(--accent)">${im.valor}</span>
+</div></div>`).join('')}
+</div>
+<div style="margin-top:28px;padding:20px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg)">
+<h3 style="font-size:16px;font-weight:700;margin-bottom:8px">💡 Dicas para Corretores</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:12px">
+${[['📊 Pipeline Visual','Acompanhe cada lead desde o primeiro contato até o fechamento'],['📱 Compartilhe com Clientes','Envie o link da vitrine direto pelo WhatsApp'],['🗺️ Mapa de Imóveis','Visualize a localização e proximidade dos imóveis'],['📋 Ficha Completa','Gere automaticamente fichas PDF para cada imóvel'],['⏰ Follow-up Automático','Configure lembretes para retornar ligações'],['📈 Relatório Mensal','Dashboard com métricas de visitas e conversões']].map(([t,d])=>`
+<div style="padding:14px;background:var(--bg-input);border-radius:var(--radius-md);border:1px solid var(--border-color)">
+<div style="font-size:13px;font-weight:700;margin-bottom:4px">${t}</div>
+<div style="font-size:11px;color:var(--text-secondary);line-height:1.5">${d}</div>
+</div>`).join('')}
+</div></div></div>`;}
+function addShowcaseItem(){showModal('Novo Imóvel','<div style="text-align:center;padding:20px"><p style="font-size:42px;margin-bottom:12px">🏠</p><p style="color:var(--text-secondary)">Cadastro de imóveis completo em breve.</p><p style="color:var(--text-tertiary);font-size:12px;margin-top:8px">Use a seção de Contatos para gerenciar clientes.</p></div>','<button class="btn" onclick="document.getElementById(\'modalOv\').classList.remove(\'active\')">OK</button>');}
+function shareShowcase(){navigator.clipboard?.writeText(window.location.href).then(()=>toast('Link copiado! Compartilhe com seus clientes 🔗','success')).catch(()=>toast('Copie o link da página para compartilhar','info'));}
+
+/* BACKGROUND COLOR PICKER */
+const BG_COLORS=[
+{c:'default',n:'Padrão',dark:'#0d0d0f',light:'#f5f5f7'},
+{c:'midnight',n:'Meia-Noite',dark:'#0a0e1a',light:'#eef1f8'},
+{c:'forest',n:'Floresta',dark:'#0a1410',light:'#f0f5f2'},
+{c:'wine',n:'Vinho',dark:'#140a0e',light:'#f8eef1'},
+{c:'ocean',n:'Oceano',dark:'#0a1014',light:'#eef3f8'},
+{c:'charcoal',n:'Carvão',dark:'#121212',light:'#fafafa'},
+{c:'plum',n:'Ameixa',dark:'#110a14',light:'#f5eef8'},
+{c:'warm',n:'Quente',dark:'#14120a',light:'#f8f5ee'}
+];
+function setBgColor(key){S.bgColor=key;applyBgColor();save();render_settings();toast('Fundo alterado','success');}
+function applyBgColor(){const bg=BG_COLORS.find(b=>b.c===(S.bgColor||'default'))||BG_COLORS[0];
+const isDark=S.theme==='dark';const base=isDark?bg.dark:bg.light;
+document.documentElement.style.setProperty('--bg-primary',base);}
+
 /* PUBLIC API */
 return{init,nav,toggleSidebar,toggleTheme,toast,showModal,newFile,openRecent,render_dashboard,
 wCmd,insertTable,insertLink,exportPDF,toggleFocus,setZoom,
@@ -1162,7 +1466,9 @@ setAccent,setFont,setFontSize,backupData,restoreData,
 toggleMT,mtTab,calcP,pomoMode,pomoToggle,pomoReset,calN,doConv,addQN,delQN,renderQN,
 toggleAI,aiAction,
 globalSearch,openSearchResult,
-addFloatingNote,updateFN,removeFN};
+addFloatingNote,updateFN,removeFN,
+render_contacts,renderContactsList,searchContacts,filterContacts,addContact,saveNewContact,delContact,
+render_showcase,addShowcaseItem,shareShowcase,setBgColor};
 })();
 document.addEventListener('DOMContentLoaded',WB.init);
 </script>
