@@ -534,24 +534,40 @@ a{color:var(--accent);text-decoration:none}
 .bg-swatch.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .bg-swatch.active::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5)}
 
-/* 3D SHOWCASE FOR CORRETORES */
-.showcase-3d{perspective:1200px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:8px 0}
-.showcase-card{background:var(--bg-card);backdrop-filter:var(--blur);border:1px solid var(--border-color);border-radius:var(--radius-lg);
-  overflow:hidden;cursor:pointer;transition:transform .4s cubic-bezier(0.4,0,0.2,1),box-shadow .4s ease,border-color .3s ease;
-  transform-style:preserve-3d;position:relative}
-.showcase-card:hover{transform:translateY(-8px) rotateX(4deg) rotateY(-2deg) scale(1.02);border-color:var(--accent);
-  box-shadow:var(--shadow-glow),0 20px 60px -15px rgba(0,0,0,0.4)}
-.showcase-card-img{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.showcase-card-img .sc-3d-obj{font-size:64px;transform:translateZ(30px);transition:transform .4s ease;filter:drop-shadow(0 8px 20px rgba(0,0,0,0.3))}
-.showcase-card:hover .sc-3d-obj{transform:translateZ(50px) rotateY(15deg) scale(1.1)}
-.showcase-card-body{padding:16px}
-.showcase-card-body h4{font-size:15px;font-weight:700;margin-bottom:4px}
-.showcase-card-body p{font-size:12px;color:var(--text-secondary);line-height:1.5}
-.showcase-card-badge{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;
-  color:#fff;backdrop-filter:blur(8px)}
-.showcase-card-actions{padding:8px 16px 16px;display:flex;gap:6px}
-.showcase-stat{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--bg-input);border-radius:var(--radius-sm);font-size:11px;font-weight:600}
-.showcase-stat svg{width:14px;height:14px;color:var(--accent)}
+/* CALENDÁRIO DE CONTEÚDO — IMOBILIÁRIO */
+.cal-layout{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+@media(max-width:1100px){.cal-layout{grid-template-columns:1fr}}
+.cal-panel{background:var(--bg-card);backdrop-filter:var(--blur);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:18px}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px}
+.cal-nav h2{font-size:18px;font-weight:800;letter-spacing:-0.4px;text-transform:capitalize}
+.cal-navbtns{display:flex;gap:6px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-weekday{text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);padding:4px 0}
+.cal-day{position:relative;min-height:78px;background:var(--bg-input);border:1px solid var(--border-color);border-radius:var(--radius-md);
+  padding:6px;cursor:pointer;transition:transform .15s ease,border-color .2s ease,box-shadow .2s ease;overflow:hidden}
+.cal-day:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 20px -10px rgba(0,0,0,0.4)}
+.cal-day.other{opacity:.35}
+.cal-day.today{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.cal-day.special{background:linear-gradient(160deg,var(--bg-card),var(--bg-input))}
+.cal-daynum{font-size:13px;font-weight:700}
+.cal-day.today .cal-daynum{color:var(--accent)}
+.cal-badge{margin-top:4px;font-size:9.5px;font-weight:700;line-height:1.25;padding:3px 5px;border-radius:6px;color:#fff;
+  display:flex;align-items:center;gap:3px;white-space:normal}
+.cal-mine{margin-top:3px;font-size:9.5px;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:3px}
+.cal-mine::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+.cal-tips h3{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.cal-tip{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border-color)}
+.cal-tip:last-child{border-bottom:none}
+.cal-tip-date{flex:none;width:38px;text-align:center}
+.cal-tip-date .d{font-size:17px;font-weight:800;line-height:1}
+.cal-tip-date .m{font-size:9px;font-weight:700;text-transform:uppercase;color:var(--text-tertiary)}
+.cal-tip-body h5{font-size:12.5px;font-weight:700;margin-bottom:2px}
+.cal-tip-body p{font-size:11px;color:var(--text-secondary);line-height:1.5}
+.cal-pillars{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:12px}
+.cal-pillar{padding:12px;background:var(--bg-input);border:1px solid var(--border-color);border-radius:var(--radius-md)}
+.cal-pillar .wd{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-bottom:3px}
+.cal-pillar .th{font-size:12px;font-weight:700;margin-bottom:2px}
+.cal-pillar .ex{font-size:10.5px;color:var(--text-secondary);line-height:1.45}
 
 /* Drawing surfaces: let touch gestures control drawing, not page scroll/zoom */
 .nb-page canvas,.wb-canvas-wrapper canvas{touch-action:none}
@@ -687,7 +703,7 @@ a{color:var(--accent);text-decoration:none}
 <div class="sb-item" data-v="templates" onclick="WB.nav('templates')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span class="sb-label">Templates</span></div>
 <div class="sb-sec">CRM</div>
 <div class="sb-item" data-v="contacts" onclick="WB.nav('contacts')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="sb-label">Contatos</span></div>
-<div class="sb-item" data-v="showcase" onclick="WB.nav('showcase')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="sb-label">Vitrine 3D</span></div>
+<div class="sb-item" data-v="showcase" onclick="WB.nav('showcase')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="sb-label">Calendário</span></div>
 <div class="sb-sec">Sistema</div>
 <div class="sb-item" data-v="settings" onclick="WB.nav('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="sb-label">Configurações</span></div>
 </div>
@@ -1151,7 +1167,7 @@ el.innerHTML=`<h1 style="font-size:24px;font-weight:700">Configurações</h1>
 <div class="setting-row"><label>Restaurar backup</label><button class="btn btn-sm" onclick="document.getElementById('restoreIn').click()">Importar</button><input type="file" id="restoreIn" accept=".json" style="display:none" onchange="WB.restoreData(event)"></div>
 <div class="setting-row"><label>Limpar tudo</label><button class="btn btn-sm" style="color:var(--danger)" onclick="if(confirm('Apagar todos os dados? Isso não pode ser desfeito. Exporte um backup antes se quiser manter suas informações.')){localStorage.clear();location.reload();}">Limpar</button></div>
 </div>
-<div class="settings-section"><h3>Sobre</h3><div class="setting-row"><label>WORKBOOK v2.1 — Premium Workspace</label><span style="font-size:11px;color:var(--text-secondary)">CRM + Vitrine 3D + Todos os módulos ativos</span></div></div>`;}
+<div class="settings-section"><h3>Sobre</h3><div class="setting-row"><label>WORKBOOK v2.1 — Premium Workspace</label><span style="font-size:11px;color:var(--text-secondary)">CRM + Calendário de Conteúdo + Todos os módulos ativos</span></div></div>`;}
 function setAccent(c){S.accent=c;applyTheme();render_settings();renderTopbarColors();save();toast('Cor atualizada','success');}
 function setFont(f){S.userFont=f;applyTheme();save();}
 function setFontSize(s){S.userFontSize=parseInt(s);applyTheme();render_settings();save();}
@@ -1420,54 +1436,134 @@ function saveEditContact(id){
   toast('Contato atualizado!','success');
 }
 
-/* 3D SHOWCASE — Vitrine Imobiliária para Corretores */
-function render_showcase(){const el=document.getElementById('v-showcase');if(!el)return;
-const imoveis=[
-{emoji:'🏢',tipo:'Apartamento',titulo:'Cobertura Duplex Cerâmica',desc:'Vista panorâmica, 3 suítes, piscina privativa, 2 vagas. Acabamento de alto padrão com home theater.',area:'220m²',quartos:3,valor:'R$ 1.850.000',badge:'Destaque',badgeColor:'linear-gradient(135deg,#FF6B6B,#ee5a24)',bg:'linear-gradient(135deg,#667eea22,#764ba222)'},
-{emoji:'🏠',tipo:'Casa',titulo:'Sobrado Jardim São Caetano',desc:'Terreno 300m², 4 quartos, quintal com churrasqueira, garagem 3 carros. Próx. ao parque.',area:'280m²',quartos:4,valor:'R$ 1.200.000',badge:'Novo',badgeColor:'linear-gradient(135deg,#30D158,#0A84FF)',bg:'linear-gradient(135deg,#11998e22,#38ef7d22)'},
-{emoji:'🏬',tipo:'Comercial',titulo:'Sala Comercial Santa Paula',desc:'Ponto nobre, 2 banheiros, recepção, copa. Ideal para escritório ou consultório.',area:'95m²',quartos:0,valor:'R$ 680.000',badge:'Oportunidade',badgeColor:'linear-gradient(135deg,#FFD60A,#FF9F0A)',bg:'linear-gradient(135deg,#f7971e22,#ffd20022)'},
-{emoji:'🏗️',tipo:'Lançamento',titulo:'Residencial Vita — Santo Antônio',desc:'Studios e 2 dorms, área de lazer completa, rooftop, coworking, pet place. Entrega 2027.',area:'38-68m²',quartos:2,valor:'A partir de R$ 420.000',badge:'Lançamento',badgeColor:'linear-gradient(135deg,#8B5CF6,#EC4899)',bg:'linear-gradient(135deg,#a18cd122,#fbc2eb22)'},
-{emoji:'🏡',tipo:'Terreno',titulo:'Terreno Osvaldo Cruz',desc:'Terreno plano 450m², escriturado, pronto para construir. Rua asfaltada com infra completa.',area:'450m²',quartos:0,valor:'R$ 890.000',badge:'Exclusivo',badgeColor:'linear-gradient(135deg,#06B6D4,#0A84FF)',bg:'linear-gradient(135deg,#4facfe22,#00f2fe22)'},
-{emoji:'🏢',tipo:'Apartamento',titulo:'2 Dorms Reformado — Cerâmica',desc:'Todo reformado, armários planejados, 1 vaga, portaria 24h. Próx. metrô e comércio.',area:'65m²',quartos:2,valor:'R$ 480.000',badge:'Reformado',badgeColor:'linear-gradient(135deg,#96CEB4,#45B7D1)',bg:'linear-gradient(135deg,#89f7fe22,#66a6ff22)'}
+/* CALENDÁRIO DE CONTEÚDO — Datas & Dicas de Post no setor imobiliário */
+let _calState={cur:new Date()};
+const CAL_MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const CAL_WD=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+/* Pilares de conteúdo por dia da semana (0=Dom) */
+const CAL_PILLARS=[
+{wd:'Domingo',th:'Estilo de Vida',ex:'Mostre o bairro, o lazer e como é morar bem na região.'},
+{wd:'Segunda',th:'Mercado & Motivação',ex:'Abra a semana com uma novidade ou dica rápida do mercado imobiliário.'},
+{wd:'Terça',th:'Imóvel da Semana',ex:'Destaque um imóvel com boas fotos/vídeo/tour e chamada para visita.'},
+{wd:'Quarta',th:'Dúvida do Cliente',ex:'Responda uma pergunta comum: financiamento, documentação, ITBI, entrada.'},
+{wd:'Quinta',th:'Bastidores',ex:'Mostre os bastidores: uma visita, sua rotina, uma negociação (sem expor dados).'},
+{wd:'Sexta',th:'Decoração & Reforma',ex:'Home staging, cores, iluminação e pequenas reformas que valorizam o imóvel.'},
+{wd:'Sábado',th:'Prova Social',ex:'Depoimento de cliente ou case: chaves entregues, sonho realizado.'}
 ];
+/* Datas fixas (MM-DD) */
+const CAL_FIX={
+'01-01':{n:'Ano Novo',c:'#EC4899',t:'Poste as metas do ano com foco em conquista: "Que este seja o ano da sua casa própria!" Convide para uma conversa sem compromisso.'},
+'03-08':{n:'Dia da Mulher',c:'#F472B6',t:'Homenageie mulheres que realizaram o sonho do imóvel próprio e a independência que a casa representa.'},
+'03-15':{n:'Dia do Consumidor',c:'#FBBF24',t:'Publique um checklist "O que conferir antes de comprar um imóvel" e reforce a segurança de comprar com um corretor.'},
+'04-21':{n:'Tiradentes (feriado)',c:'#34D399',t:'Sugira aproveitar o dia livre para visitar imóveis. Poste opções abertas para visita no feriado.'},
+'05-01':{n:'Dia do Trabalho',c:'#60A5FA',t:'Mensagem de valorização: "Todo esforço vale a pena quando o objetivo é o seu lar." Mostre os bastidores do seu trabalho.'},
+'06-05':{n:'Dia do Meio Ambiente',c:'#34D399',t:'Destaque imóveis com áreas verdes, condomínios arborizados e sustentabilidade (energia solar, reuso de água).'},
+'06-12':{n:'Dia dos Namorados',c:'#FB7185',t:'Foque no primeiro imóvel do casal / morar junto. Poste "checklist para comprar o primeiro imóvel a dois".'},
+'06-24':{n:'São João / Festas Juninas',c:'#F59E0B',t:'Explore o aconchego do lar: "Nada como um cantinho seu para receber quem você ama." Fotos de áreas de convívio.'},
+'08-27':{n:'Dia do Corretor de Imóveis',c:'#A78BFA',t:'Seu dia! Conte sua história, mostre bastidores e agradeça os clientes — ótimo para gerar conexão e autoridade.'},
+'09-07':{n:'Independência (feriado)',c:'#34D399',t:'Trocadilho que funciona: "Conquiste sua independência… com um imóvel próprio." Poste condições de financiamento.'},
+'09-21':{n:'Dia da Árvore',c:'#22C55E',t:'Valorize natureza e qualidade de vida: imóveis perto de parques, praças e com boa arborização.'},
+'09-23':{n:'Início da Primavera',c:'#F472B6',t:'Estação de renovar: dicas de decoração e como preparar o imóvel para vender/alugar mais rápido.'},
+'10-12':{n:'Dia das Crianças',c:'#38BDF8',t:'Foque em famílias: imóveis com espaço kids, quintal, playground e proximidade de escolas.'},
+'11-15':{n:'Proclamação (feriado)',c:'#34D399',t:'Poste um imóvel destaque com chamada para agendar visita na semana do feriado.'},
+'12-25':{n:'Natal',c:'#EF4444',t:'Emocional: "O melhor presente é um novo lar." Deseje boas festas e mostre a alegria de quem realizou o sonho.'},
+'12-31':{n:'Réveillon',c:'#F59E0B',t:'Retrospectiva do ano: quantas famílias você ajudou a realizar o sonho. Prepare o público para o próximo ano.'}
+};
+function _calNthDow(y,m,dow,n){let d=new Date(y,m,1),c=0;while(d.getMonth()===m){if(d.getDay()===dow){c++;if(c===n)return new Date(d);}d.setDate(d.getDate()+1);}return null;}
+function _calLastDow(y,m,dow){let d=new Date(y,m+1,0);while(d.getDay()!==dow)d.setDate(d.getDate()-1);return d;}
+function _calKey(dt){return String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
+/* Monta o mapa de datas especiais do ano (fixas + móveis) */
+function calSpecials(y){const map={};for(const k in CAL_FIX)map[k]={...CAL_FIX[k]};
+const maes=_calNthDow(y,4,0,2);if(maes)map[_calKey(maes)]={n:'Dia das Mães',c:'#F472B6',t:'Homenageie as mães e conecte com "dar um lar para a família". Use depoimentos de mães que realizaram a compra.'};
+const pais=_calNthDow(y,7,0,2);if(pais)map[_calKey(pais)]={n:'Dia dos Pais',c:'#60A5FA',t:'Homenageie os pais e o esforço por um lar melhor. Histórias de pais que investiram no futuro da família.'};
+const bf=_calLastDow(y,10,5);if(bf)map[_calKey(bf)]={n:'Black Friday',c:'#F59E0B',t:'A data mais forte para ofertas! Divulgue condições especiais, feirões e descontos. Crie urgência com prazo definido.'};
+return map;}
+function _calPosts(){try{return JSON.parse(localStorage.getItem('wb_cal_posts')||'{}');}catch(e){return {};}}
+function _calSavePosts(o){try{localStorage.setItem('wb_cal_posts',JSON.stringify(o));}catch(e){}}
+function _calISO(y,m,d){return y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');}
+
+function render_showcase(){const el=document.getElementById('v-showcase');if(!el)return;
+const cur=_calState.cur,y=cur.getFullYear(),m=cur.getMonth();
+const sp=calSpecials(y),posts=_calPosts(),tn=new Date();
+const first=new Date(y,m,1).getDay(),dim=new Date(y,m+1,0).getDate();
+let cells='';
+for(let i=0;i<42;i++){const dnum=i-first+1;const isOther=dnum<1||dnum>dim;
+const dd=new Date(y,m,dnum),ry=dd.getFullYear(),rm=dd.getMonth(),rd=dd.getDate();
+const key=_calKey(dd),s=sp[key],iso=_calISO(ry,rm,rd);
+const isToday=ry===tn.getFullYear()&&rm===tn.getMonth()&&rd===tn.getDate();
+const mine=posts[iso]||[];
+cells+=`<div class="cal-day ${isOther?'other':''} ${isToday?'today':''} ${s&&!isOther?'special':''}" onclick="WB.calOpenDay('${iso}')">
+<div class="cal-daynum">${dd.getDate()}</div>
+${s&&!isOther?`<div class="cal-badge" style="background:${s.c}" title="${s.n}">${s.n}</div>`:''}
+${mine.length&&!isOther?`<div class="cal-mine">${mine.length} post${mine.length>1?'s':''}</div>`:''}
+</div>`;}
+/* Lista de datas do mês para o painel lateral */
+const doMes=Object.keys(sp).filter(k=>k.startsWith(String(m+1).padStart(2,'0')+'-')).sort()
+.map(k=>{const d=parseInt(k.slice(3));const s=sp[k];return {d,k,s};});
 el.innerHTML=`<div style="padding:32px;overflow-y:auto;flex:1">
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px">
 <div><h1 style="font-size:26px;font-weight:800;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px">
-<span style="font-size:32px">🏠</span> Vitrine Imobiliária 3D</h1>
-<p style="color:var(--text-secondary);font-size:13px;margin-top:4px">Apresentação interativa de imóveis para seus clientes — passe o mouse para efeito 3D</p></div>
-<div style="display:flex;gap:8px">
-<button class="btn btn-primary btn-sm" onclick="WB.addShowcaseItem()">+ Adicionar Imóvel</button>
-<button class="btn btn-sm" onclick="WB.shareShowcase()">🔗 Compartilhar</button>
+<span style="font-size:30px">🗓️</span> Calendário de Conteúdo</h1>
+<p style="color:var(--text-secondary);font-size:13px;margin-top:4px">Datas do setor imobiliário com dica de post pronta — planeje suas publicações do mês</p></div>
+<button class="btn btn-sm" onclick="WB.calToday()">Hoje</button>
+</div>
+<div class="cal-layout">
+<div class="cal-panel">
+<div class="cal-nav">
+<h2>${CAL_MESES[m]} ${y}</h2>
+<div class="cal-navbtns">
+<button class="btn btn-sm" onclick="WB.calPrev()" aria-label="Mês anterior">‹</button>
+<button class="btn btn-sm" onclick="WB.calNext()" aria-label="Próximo mês">›</button>
 </div></div>
-<div class="showcase-3d">${imoveis.map((im,i)=>`
-<div class="showcase-card" style="animation:slideUp .4s ease ${i*0.08}s both">
-<div class="showcase-card-img" style="background:${im.bg}">
-<div class="sc-3d-obj">${im.emoji}</div>
-<div class="showcase-card-badge" style="background:${im.badgeColor}">${im.badge}</div>
+<div class="cal-grid">${CAL_WD.map(w=>`<div class="cal-weekday">${w}</div>`).join('')}${cells}</div>
 </div>
-<div class="showcase-card-body">
-<span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:700">${im.tipo}</span>
-<h4>${im.titulo}</h4>
-<p>${im.desc}</p>
+<div class="cal-panel cal-tips">
+<h3>📌 Datas de ${CAL_MESES[m]}</h3>
+${doMes.length?doMes.map(o=>`<div class="cal-tip">
+<div class="cal-tip-date"><div class="d">${o.d}</div><div class="m">${CAL_MESES[m].slice(0,3)}</div></div>
+<div class="cal-tip-body"><h5>${o.s.n}</h5><p>${o.s.t}</p>
+<button class="btn btn-sm" style="margin-top:6px;padding:3px 10px;font-size:10px" onclick="WB.calCopySpecial('${_calISO(y,m,o.d)}')">Copiar dica</button></div></div>`).join('')
+:'<p style="color:var(--text-secondary);font-size:12px">Sem datas comemorativas neste mês — use os pilares por dia da semana abaixo para manter a frequência.</p>'}
 </div>
-<div class="showcase-card-actions">
-<div class="showcase-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>${im.area}</div>
-${im.quartos?`<div class="showcase-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/></svg>${im.quartos} qts</div>`:''}
-<div style="flex:1"></div>
-<span style="font-size:13px;font-weight:700;color:var(--accent)">${im.valor}</span>
-</div></div>`).join('')}
 </div>
-<div style="margin-top:28px;padding:20px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg)">
-<h3 style="font-size:16px;font-weight:700;margin-bottom:8px">💡 Dicas para Corretores</h3>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:12px">
-${[['📊 Pipeline Visual','Acompanhe cada lead desde o primeiro contato até o fechamento'],['📱 Compartilhe com Clientes','Envie o link da vitrine direto pelo WhatsApp'],['🗺️ Mapa de Imóveis','Visualize a localização e proximidade dos imóveis'],['📋 Ficha Completa','Gere automaticamente fichas PDF para cada imóvel'],['⏰ Follow-up Automático','Configure lembretes para retornar ligações'],['📈 Relatório Mensal','Dashboard com métricas de visitas e conversões']].map(([t,d])=>`
-<div style="padding:14px;background:var(--bg-input);border-radius:var(--radius-md);border:1px solid var(--border-color)">
-<div style="font-size:13px;font-weight:700;margin-bottom:4px">${t}</div>
-<div style="font-size:11px;color:var(--text-secondary);line-height:1.5">${d}</div>
-</div>`).join('')}
-</div></div></div>`;}
-function addShowcaseItem(){showModal('Novo Imóvel','<div style="text-align:center;padding:20px"><p style="font-size:42px;margin-bottom:12px">🏠</p><p style="color:var(--text-secondary)">Cadastro de imóveis completo em breve.</p><p style="color:var(--text-tertiary);font-size:12px;margin-top:8px">Use a seção de Contatos para gerenciar clientes.</p></div>','<button class="btn" onclick="document.getElementById(\'modalOv\').classList.remove(\'active\')">OK</button>');}
-function shareShowcase(){navigator.clipboard?.writeText(window.location.href).then(()=>toast('Link copiado! Compartilhe com seus clientes 🔗','success')).catch(()=>toast('Copie o link da página para compartilhar','info'));}
+<div class="cal-panel" style="margin-top:20px">
+<h3 style="font-size:14px;font-weight:800;margin-bottom:2px">🎯 Ideias por dia da semana</h3>
+<p style="color:var(--text-secondary);font-size:12px">Quando não houver data especial, siga estes pilares para nunca ficar sem post.</p>
+<div class="cal-pillars">${[1,2,3,4,5,6,0].map(i=>{const p=CAL_PILLARS[i];return `<div class="cal-pillar"><div class="wd">${p.wd}</div><div class="th">${p.th}</div><div class="ex">${p.ex}</div></div>`;}).join('')}</div>
+</div>
+</div>`;}
+
+function calPrev(){_calState.cur=new Date(_calState.cur.getFullYear(),_calState.cur.getMonth()-1,1);render_showcase();}
+function calNext(){_calState.cur=new Date(_calState.cur.getFullYear(),_calState.cur.getMonth()+1,1);render_showcase();}
+function calToday(){_calState.cur=new Date();render_showcase();}
+function calOpenDay(iso){const[y,m,d]=iso.split('-').map(Number);const dt=new Date(y,m-1,d);
+const sp=calSpecials(y),s=sp[_calKey(dt)],pil=CAL_PILLARS[dt.getDay()],posts=_calPosts(),mine=posts[iso]||[];
+const titulo=d+' de '+CAL_MESES[m-1]+' • '+['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'][dt.getDay()];
+let body=`<div style="padding:6px 2px">`;
+if(s)body+=`<div style="padding:12px;border-radius:10px;background:var(--bg-input);border-left:4px solid ${s.c};margin-bottom:12px">
+<div style="font-size:13px;font-weight:800;color:${s.c};margin-bottom:4px">🎉 ${s.n}</div>
+<div style="font-size:12.5px;color:var(--text-secondary);line-height:1.5">${s.t}</div>
+<button class="btn btn-sm" style="margin-top:8px;padding:4px 12px;font-size:11px" onclick="WB.calCopySpecial('${iso}')">Copiar dica</button></div>`;
+body+=`<div style="padding:12px;border-radius:10px;background:var(--bg-input);margin-bottom:14px">
+<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);margin-bottom:3px">Pilar do dia • ${pil.th}</div>
+<div style="font-size:12.5px;color:var(--text-secondary);line-height:1.5">${pil.ex}</div>
+<button class="btn btn-sm" style="margin-top:8px;padding:4px 12px;font-size:11px" onclick="WB.calCopyPillar('${iso}')">Copiar ideia</button></div>`;
+body+=`<div style="font-size:12px;font-weight:800;margin-bottom:8px">✍️ Meus posts agendados</div>`;
+if(mine.length)body+=mine.map((p,i)=>`<div style="display:flex;gap:8px;align-items:flex-start;padding:8px;background:var(--bg-input);border-radius:8px;margin-bottom:6px">
+<div style="flex:1;font-size:12.5px;line-height:1.4">${p.replace(/</g,'&lt;')}</div>
+<button class="btn btn-sm" style="padding:2px 8px;font-size:11px" onclick="WB.calDelPost('${iso}',${i})">✕</button></div>`).join('');
+else body+=`<p style="font-size:12px;color:var(--text-tertiary);margin-bottom:8px">Nenhum post agendado para este dia ainda.</p>`;
+body+=`<div style="display:flex;gap:8px;margin-top:10px">
+<input id="calPI" placeholder="Escreva a ideia do post…" style="flex:1;padding:9px 12px;background:var(--bg-input);border:1px solid var(--border-color);border-radius:var(--radius-sm);color:var(--text-primary);font-size:13px;outline:none" onkeydown="if(event.key==='Enter')WB.calAddPost('${iso}')">
+<button class="btn btn-primary btn-sm" onclick="WB.calAddPost('${iso}')">Agendar</button></div></div>`;
+showModal(titulo,body,`<button class="btn" onclick="document.getElementById('modalOv').classList.remove('active')">Fechar</button>`);}
+function calAddPost(iso){const inp=document.getElementById('calPI');const v=(inp?.value||'').trim();if(!v){toast('Escreva a ideia do post','info');return;}
+const o=_calPosts();(o[iso]=o[iso]||[]).push(v);_calSavePosts(o);calOpenDay(iso);render_showcase();toast('Post agendado ✓','success');}
+function calDelPost(iso,i){const o=_calPosts();if(o[iso]){o[iso].splice(i,1);if(!o[iso].length)delete o[iso];_calSavePosts(o);}calOpenDay(iso);render_showcase();}
+function calCopySpecial(iso){const[y]=iso.split('-').map(Number);const dt=new Date(iso+'T00:00:00');const s=calSpecials(y)[_calKey(dt)];if(!s)return;
+const txt=s.n+' — '+s.t;navigator.clipboard?.writeText(txt).then(()=>toast('Dica copiada ✓','success')).catch(()=>toast('Copie manualmente','info'));}
+function calCopyPillar(iso){const dt=new Date(iso+'T00:00:00');const p=CAL_PILLARS[dt.getDay()];const txt=p.th+' — '+p.ex;
+navigator.clipboard?.writeText(txt).then(()=>toast('Ideia copiada ✓','success')).catch(()=>toast('Copie manualmente','info'));}
 
 /* BACKGROUND COLOR PICKER */
 const BG_COLORS=[
@@ -1504,7 +1600,7 @@ toggleAI,aiAction,
 globalSearch,openSearchResult,
 addFloatingNote,updateFN,removeFN,
 render_contacts,renderContactsList,searchContacts,filterContacts,addContact,saveNewContact,delContact,editContact,saveEditContact,
-render_showcase,addShowcaseItem,shareShowcase,setBgColor};
+render_showcase,calPrev,calNext,calToday,calOpenDay,calAddPost,calDelPost,calCopySpecial,calCopyPillar,setBgColor};
 })();
 document.addEventListener('DOMContentLoaded',WB.init);
 </script>
