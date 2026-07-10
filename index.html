@@ -1230,70 +1230,76 @@ function restoreFloatingNotes(){S.floatingNotes.forEach(fn=>createFNEl(fn));}
 
 /* ===================== CONTACTS MODULE ===================== */
 const DEFAULT_CONTACTS=[
-{id:'c1',nome:'DANIELLA PAVAN BEGA',bairro:'Cerâmica',end:'R. Tupi, 322',fone:'932',cod:'09530531',email:'danielapbega@gmail.com'},
-{id:'c2',nome:'OSVALDO CORREA DA SILVA',bairro:'Osvaldo Cruz',end:'R. São Paulo, 999',fone:'335',cod:'09530211',email:'rodrigo.otsuri@yahoo.com.br'},
-{id:'c3',nome:'RODRIGO OTSURI AUGUSTINHO',bairro:'Santa Paula',end:'R. Rio de Janeiro, 335 Bl B Copacabana',fone:'99',cod:'09540401',email:'rodrigo.otsuri@yahoo.com.br'},
-{id:'c4',nome:'VANESSA MARTINEZ BARILLI',bairro:'Jardim São Caetano',end:'Av. Wenceslau Brás, 97',fone:'1494',cod:'09541200',email:'vanessa.martinezb@hotmail.com'},
-{id:'c5',nome:'ALEX ROSQUE ORTIZ',bairro:'Santa Paula',end:'R. Piauí, 400',fone:'97',cod:'09540401',email:'alex.rosque@gmail.com'},
-{id:'c6',nome:'BRUNO MILANI',bairro:'Osvaldo Cruz',end:'Av. Amazonas, 1494',fone:'400',cod:'09540901',email:'bruno.milani@itau-unibanco.com.br'},
-{id:'c7',nome:'MARIO PACHECO DE ALMEIDA',bairro:'Santa Paula',end:'R. Piauí, 400',fone:'931',cod:'09541300',email:'mariopacheco@gmail.com'},
-{id:'c8',nome:'JORGE YAGUNUMA',bairro:'Cerâmica',end:'R. São Paulo, 931',fone:'360',cod:'09530131',email:'jorge.yagunuma@yahoo.com.br'},
-{id:'c9',nome:'ROBERTA DA SILVA COLOGNESI',bairro:'Santa Paula',end:'R. NS de Fátima, 360',fone:'273',cod:'09540101',email:'roberta.colognesi@yahoo.com.br'},
-{id:'c10',nome:'RODRIGO MOREIRA SILVA BARBOSA',bairro:'Osvaldo Cruz',end:'R. VCS de Grinhalma, 273',fone:'868',cod:'09571000',email:'rodrigo.barbosa@hotmail.com'},
-{id:'c11',nome:'SANDRA CRISTINA QUADRADO ROSA',bairro:'Santa Paula',end:'R. Mal. Deodoro, 52',fone:'1340',cod:'09541300',email:'sandra.cqr@hotmail.com'},
-{id:'c12',nome:'ANGELICA CATARINA CAMPOS BREVES',bairro:'Santo Antônio',end:'R. Goiás, 935',fone:'52',cod:'09530121',email:'angelicacbr@gmail.com'},
-{id:'c13',nome:'GRACIELE SANTOS PEREIRA',bairro:'Cerâmica',end:'R. Goiás, 935',fone:'935',cod:'09530121',email:'gracielesp19@hotmail.com'},
-{id:'c14',nome:'JOSÉ CARLOS RODRIGUES',bairro:'Santo Antônio',end:'R. São Paulo, 1340',fone:'322',cod:'09530530',email:'josecarlosrodrigues@hotmail.com'},
-{id:'c15',nome:'LUCIENE OLIVEIRA DE SOLICH',bairro:'Santa Paula',end:'R. Afonso, 771',fone:'229',cod:'09541400',email:'luciene.solich@gmail.com'},
-{id:'c16',nome:'MARIA FERNANDA LARANJEIRA DA SILVA',bairro:'Cerâmica',end:'R. Tupi, 322',fone:'322',cod:'09530310',email:'dessinerre@hotmail.com'},
-{id:'c17',nome:'MARIANA CRISTINA COELHO ALVES',bairro:'Santa Paula',end:'R. São Paulo, 771',fone:'771',cod:'09530211',email:'marianacoelho@hotmail.com'},
-{id:'c18',nome:'ROBSON MARCATO',bairro:'Jardim São Caetano',end:'Av. Pres. Kennedy, 1559',fone:'1559',cod:'09581600',email:'robson.marcato@gmail.com'},
-{id:'c19',nome:'DANIEL NARDI MORENO',bairro:'Santa Paula',end:'R. Alegre, 156 Bl C',fone:'156',cod:'09550010',email:'daniel.nmoreno@gmail.com'},
-{id:'c20',nome:'DANIELA PARRA MARCATO',bairro:'Santo Antônio',end:'R. Espírito Santo, 200',fone:'200',cod:'09555030',email:'danielaparra@hotmail.com'},
-{id:'c21',nome:'LEONARDO DE MATOS',bairro:'Santa Paula',end:'R. Alegre, 1093 Ed Vincita',fone:'1093',cod:'09530250',email:'leonardo.matos@hotmail.com'},
-{id:'c22',nome:'MICHELLY VERONESI GREC',bairro:'Osvaldo Cruz',end:'R. Floriano Peixoto, 134 Ed Estilo',fone:'134',cod:'09541350',email:'michelly.grec@hotmail.com'},
-{id:'c23',nome:'SIMONE PIRES DO AMARAL SANTOS',bairro:'Santa Paula',end:'R. Rio de Janeiro, 335 Bl B Leblon',fone:'335',cod:'09540400',email:'simonepires@hotmail.com'},
-{id:'c24',nome:'PAULO HENRIQUE VISCAI CARVALHO',bairro:'Cerâmica',end:'R. Antônio Bento, 24',fone:'24',cod:'09520050',email:'paulohenrique.vc@yahoo.com.br'},
-{id:'c25',nome:'GIANE APARECIDA BITTENCOURT',bairro:'Cerâmica',end:'R. Gonçalves Dias, 168',fone:'168',cod:'09530580',email:'giane.bittencourt@yahoo.com.br'},
-{id:'c26',nome:'FLAVIO APARECIDO BARROSO',bairro:'Santa Paula',end:'R. Martim Francisco, 366 Ed Parati',fone:'366',cod:'09541330',email:'flavio.barroso@gmail.com'},
-{id:'c27',nome:'ARLEY D OLIVEIRA CAMPOS FIGUEIREDO',bairro:'Osvaldo Cruz',end:'R. São Jorge, 604 Bl Monet',fone:'604',cod:'09570410',email:'arley.figueiredo@gmail.com'},
-{id:'c28',nome:'FERNANDO DE CARVALHO',bairro:'Santa Paula',end:'R. Serafim Carlos, 649',fone:'649',cod:'09541320',email:'fe.carvalho@gmail.com'},
-{id:'c29',nome:'MAFALDA THEREZA PIZOL TIBERIO',bairro:'Santo Antônio',end:'R. Gen. Osório, 363 Ed Marina Giacomo',fone:'363',cod:'09571200',email:'mafalda.tiberio@gmail.com'},
-{id:'c30',nome:'NATALIA SASSO CARDOSO',bairro:'Santa Paula',end:'R. Roma, 77',fone:'77',cod:'09557120',email:'naty_sasso@yahoo.com.br'},
-{id:'c31',nome:'RODRIGO BARBONUEVO FELICIANO',bairro:'Cerâmica',end:'R. NS de Fátima, 393',fone:'55',cod:'09540100',email:'feliciano.rodrigo@yahoo.com.br'},
-{id:'c32',nome:'ANDRÉ MUNARI',bairro:'Santa Paula',end:'R. Cnso Lafayette, 450',fone:'450',cod:'09550000',email:'andre.munari@terra.com.br'},
-{id:'c33',nome:'ERIK RODRIGUES SCHWARZ',bairro:'Santa Paula',end:'R. Dr. Augusto de Toledo, 888',fone:'888',cod:'09540080',email:'erik.schwarz@gmail.com'},
-{id:'c34',nome:'FÁBIO RODRIGUES LOPES',bairro:'Santa Paula',end:'R. Alegre, 156 Bl 1',fone:'156',cod:'09550250',email:'fabiorlopes@hotmail.com'},
-{id:'c35',nome:'KARINA MANSSINI INTATILO',bairro:'Cerâmica',end:'R. Ten Antônio João, 581',fone:'581',cod:'09530460',email:'karina.intatilo@gmail.com'},
-{id:'c36',nome:'MARLENE RIBEIRO TONDATO',bairro:'Santa Paula',end:'R. Mal. Deodoro, 597',fone:'597',cod:'09541300',email:'marlene.tondato@gmail.com'},
-{id:'c37',nome:'MARIA PEREIRA MENDES BARBOSA',bairro:'Santa Paula',end:'R. Nil Peçanha, 100',fone:'100',cod:'09540830',email:'maria.mendes@gmail.com'},
-{id:'c38',nome:'MILTON CARLOS DOS SANTOS SILVA',bairro:'Santo Antônio',end:'Av. Goiás, 935',fone:'935',cod:'09521330',email:'milton.santos@gmail.com'},
-{id:'c39',nome:'LUCIANA DUENHA LUZ CAVALCANTE',bairro:'Santa Paula',end:'Av. Papa Augusto Bl XXIII, 541',fone:'541',cod:'09558160',email:'luciana.duenha@gmail.com'},
-{id:'c40',nome:'TATIANE TORNALIERI BLACK',bairro:'Santo Antônio',end:'R. São Jorge, 604 Bl Monet',fone:'604',cod:'09553025',email:'tatiane.black@gmail.com'},
-{id:'c41',nome:'DENIS HONORATO MOREIRA',bairro:'Osvaldo Cruz',end:'R. Osvaldo Cruz, 1762',fone:'1762',cod:'09540200',email:'denismoreira100@gmail.com'},
-{id:'c42',nome:'MARCIO RODRIGO LUCHT PAULINO',bairro:'Santa Paula',end:'R. Rio de Janeiro, 335 Bl B Copacabana',fone:'335',cod:'09540081',email:'marcio.lucht@gmail.com'},
-{id:'c43',nome:'SELMA LUISA CAVALCANTE CREPALDI',bairro:'Osvaldo Cruz',end:'R. São Paulo, 604 Bl Monet',fone:'604',cod:'09530400',email:'selma.crepaldi@hotmail.com'},
-{id:'c44',nome:'RENATO VIEIRA',bairro:'Santo Antônio',end:'R. Rio de Janeiro, 545',fone:'545',cod:'09530435',email:'renato.vieira@hotmail.com'},
-{id:'c45',nome:'ALVARO MAURICIO CABRAL PIZARRO',bairro:'Cerâmica',end:'R. Rafael Corrêa Sampaio, 70',fone:'70',cod:'09575835',email:'almpizarro@hotmail.com'},
-{id:'c46',nome:'FABIANA MAYUMI TENROPAOLO',bairro:'Santa Paula',end:'Av. Dr. Augusto, 55 Bl Infinity 1542',fone:'55',cod:'09540150',email:'fabi.251818@gmail.com'},
-{id:'c47',nome:'GISELE DE BRITO PIETROPAOLO',bairro:'Osvaldo Cruz',end:'R. Amazonas, 1720',fone:'1720',cod:'09539036',email:'gisele.pietropaolo@gmail.com'},
-{id:'c48',nome:'NEIDE GOMES FIGUEIRA',bairro:'Santo Antônio',end:'R. Maranhão, 344',fone:'344',cod:'09540203',email:'marcio.figueira@gmail.com'},
-{id:'c49',nome:'ELISANGELA FARAI LEITE',bairro:'Santa Paula',end:'R. Maranhão, 291 Ed Felicitar',fone:'291',cod:'09541000',email:'elisangela.farai1977@gmail.com'},
-{id:'c50',nome:'ADRIANA PIMENTEL FONSECA',bairro:'Cerâmica',end:'R. Saldanha Marinho, 33',fone:'33',cod:'09553110',email:'dri.pimentel@uol.com.br'},
-{id:'c51',nome:'ANDERSON LUIS GONÇALVES',bairro:'Cerâmica',end:'R. Monte Alegre, 33',fone:'33',cod:'09553130',email:'garcia.andre.santos@gmail.com'},
-{id:'c52',nome:'ANDRÉ EMÍLIO BELO GARCIA',bairro:'Santa Paula',end:'R. Ten Antônio João, 581',fone:'581',cod:'09530460',email:'douglas.belo@gmail.com'},
-{id:'c53',nome:'DOUGLAS ALADÓR FRANCO MARTINS',bairro:'Osvaldo Cruz',end:'R. Porcelana, 55 Bl Confort',fone:'55',cod:'09541150',email:'lucio.bittencourt@me.com'},
-{id:'c54',nome:'ROGÉRIO MARTINS CAVALCANTE',bairro:'Santa Paula',end:'R. Cnso Lafayette, 1506',fone:'1506',cod:'09540000',email:'rogerio.cavalcante@terra.com.br'},
-{id:'c55',nome:'REGINALDO DE ALMEIDA SOUZA',bairro:'Santo Antônio',end:'R. Rio de Janeiro, 335',fone:'335',cod:'09550000',email:'reginaldo.souza@terra.com.br'},
-{id:'c56',nome:'ANDERSON DE ESCARAMELLO',bairro:'Santa Paula',end:'R. Maranhão, 109',fone:'109',cod:'09541000',email:'ascasiano.abelis@gmail.com'},
-{id:'c57',nome:'GRAZIELA BRIDES DOS SANTOS',bairro:'Cerâmica',end:'R. São Paulo, 931',fone:'931',cod:'09553130',email:'brides@gmail.com'},
-{id:'c58',nome:'CASSIANO RABELLO',bairro:'Santo Antônio',end:'R. São Paulo, 111',fone:'111',cod:'09530211',email:'cassiano.rabello@terra.com.br'},
-{id:'c59',nome:'MARIA APARECIDA MARTINS DA SILVA',bairro:'Santa Paula',end:'R. Saldanha Giuliano, 291',fone:'291',cod:'09553130',email:'mulheresformosas@hotmail.com'},
-{id:'c60',nome:'ROSMERE ROSA OLIVEIRA',bairro:'Osvaldo Cruz',end:'R. Wenceslau Brás, 231 Bl 1',fone:'231',cod:'09541200',email:'taniamartinaez@bb.com.br'},
-{id:'c61',nome:'TANIA REGINA MARTINEZ DO PRADO',bairro:'Santa Paula',end:'R. Wenceslau Brás, 231 Bl 1',fone:'569',cod:'09571425',email:'tania.prado@hotmail.com'},
+{id:'c1',nome:'DANIELLA PAIVAN BEGA',bairro:'Cerâmica',end:'R. Tupi, 322',fone:'11967273362',cod:'09530531',email:'fabianoeberjorge@gmail.com'},
+{id:'c2',nome:'ODUVALDO CORREA DA SILVA',bairro:'Cerâmica',end:'R. São Paulo, 999',fone:'11986904915',cod:'09530211',email:'jbatagliotti@gmail.com'},
+{id:'c3',nome:'RODRIGO OTSURI AUGUSTINHO',bairro:'Osvaldo Cruz',end:'R. Rio de Janeiro, 335 Bl B Copacabana',fone:'11996536974',cod:'09540401',email:'rodrigo.otsuru@yahoo.com.br'},
+{id:'c4',nome:'VANESSA MARTINEZ BARILLI',bairro:'Santa Paula',end:'Av. Wenceslau Brás, 99',fone:'11972792330',cod:'09541200',email:'vaniabarilli@gmail.com'},
+{id:'c5',nome:'ALEX ROSQUE ORTIZ',bairro:'Jardim São Caetano',end:'Av. Jardim Zoológico, 97',fone:'11984731825',cod:'09581380',email:'alexrosiqueortiz@hotmail.com'},
+{id:'c6',nome:'BRUNO MILANI PACHECO DE ALMEIDA',bairro:'Osvaldo Cruz',end:'R. Amazonas, 1494',fone:'11947548808',cod:'09540201',email:'bruno.milani@itau-unibanco.com.br'},
+{id:'c7',nome:'JORGE BRUSCHI',bairro:'Santa Paula',end:'R. Piauí, 400',fone:'11984186137',cod:'09541150',email:'jorge.bruschi79@gmail.com'},
+{id:'c8',nome:'MILENA YAGUNUMA',bairro:'Cerâmica',end:'R. São Paulo, 931',fone:'11976315460',cod:'09530211',email:'milenayaguinuma@yahoo.com.br'},
+{id:'c9',nome:'ROBERTA DA SILVA COLOGNESI',bairro:'Santa Paula',end:'R. N. S. de Fátima, 360',fone:'11981997986',cod:'09540101',email:'roberta.infor@yahoo.com.br'},
+{id:'c10',nome:'RODRIGO MOREIRA BARBOSA',bairro:'Osvaldo Cruz',end:'R. Visc. de Inhaúma, 273',fone:'11986855840',cod:'09571010',email:'digo_tapa@hotmail.com'},
+{id:'c11',nome:'SANDRA CRISTINA QUADRADO ROSA',bairro:'Santo Antônio',end:'R. Rio Grande do Sul, 868',fone:'11987718894',cod:'09510021',email:'sandrac.quadrado@gmail.com'},
+{id:'c12',nome:'ANGÉLICA CATARINA CAMPOS BREVES',bairro:'Santa Paula',end:'R. Mal. Deodoro, 52',fone:'11981835060',cod:'09541300',email:'emecarb@hotmail.com'},
+{id:'c13',nome:'GRACIELE SANTOS PEREIRA',bairro:'Cerâmica',end:'R. São Paulo, 1340',fone:'11991692925',cod:'09530211',email:'gracielesp19@gmail.com'},
+{id:'c14',nome:'JOSÉ CARLOS RODRIGUES',bairro:'Santo Antônio',end:'Av. Goiás, 935',fone:'11994290922',cod:'09521310',email:'carloscjrodri@gmail.com'},
+{id:'c15',nome:'JOYCE ROBERTA ZANLUCHI',bairro:'Cerâmica',end:'R. Tupi, 322',fone:'11997638594',cod:'09530530',email:'joycezanluchi@hotmail.com'},
+{id:'c16',nome:'JUCILENE OLIVEIRA DE SOUZA',bairro:'Santa Paula',end:'R. Afonso Pena, 229',fone:'11983475902',cod:'09541400',email:'souzajucy.7@gmail.com'},
+{id:'c17',nome:'MARIA FERNANDA LARANJEIRA DA SILVA',bairro:'Cerâmica',end:'R. São Paulo, 771',fone:'11950420512',cod:'09530211',email:'mfernandals@gmail.com'},
+{id:'c18',nome:'MARIANA CRISTINA COELHO ALVES',bairro:'Jardim São Caetano',end:'R. Bartolomeu Bueno da Silva, 301',fone:'11974418665',cod:'09581600',email:'alves.mariec@gmail.com'},
+{id:'c19',nome:'ROBSON MARCATO',bairro:'Santa Paula',end:'Av. Pres. Kennedy, 1559',fone:'11982460284',cod:'09560010',email:'robson.marcato@hotmail.com'},
+{id:'c20',nome:'DANIEL NARDI MORENO',bairro:'Santa Paula',end:'R. Alegre, 156 Bl C',fone:'11995059712',cod:'09550250',email:'famiglianarditoni@gmail.com'},
+{id:'c21',nome:'DANIELA PARRA MARCATO',bairro:'Santo Antônio',end:'R. Espírito Santo, 200',fone:'11970580000',cod:'09555030',email:'daniel@dparra.com.br'},
+{id:'c22',nome:'LEONARDO DE MATTOS',bairro:'Santa Paula',end:'R. Alegre, 1093 Ed Vincita',fone:'11972513822',cod:'09550250',email:'mattosleo@hotmail.com'},
+{id:'c23',nome:'MICHELLY VERONESI GREC',bairro:'Santa Paula',end:'R. Floriano Peixoto, 134 Ed Estilo',fone:'11981897667',cod:'09541350',email:'luizhenrique.bo@hotmail.com'},
+{id:'c24',nome:'SIMONE PIRES DO AMARAL SANTOS',bairro:'Osvaldo Cruz',end:'R. Rio de Janeiro, 335 Bl B Leblon',fone:'11991338524',cod:'09540400',email:'simonepap@hotmail.com'},
+{id:'c25',nome:'PAULO HENRIQUE VISCHI CARVALHO',bairro:'Santa Paula',end:'R. Antônio Bento, 24',fone:'11981311941',cod:'09520050',email:'phvcarvalho@yahoo.com.br'},
+{id:'c26',nome:'LUCIO VASCONCELOS BITTENCOURT',bairro:'Cerâmica',end:'R. Gonçalves Dias, 168',fone:'11969491001',cod:'09530580',email:'lucio.bittencourt@hotmail.com'},
+{id:'c27',nome:'GIANE APARECIDA BARROSO',bairro:'Santa Paula',end:'R. Martim Francisco, 366 Ed Parati',fone:'11993100117',cod:'09541530',email:'gianebarroso@yahoo.com.br'},
+{id:'c28',nome:'FLAVIO ROBERTO CAMPOS FIGUEIREDO',bairro:'Santo Antônio',end:'R. São Jorge, 604 Bl B Monet',fone:'11973365737',cod:'09530250',email:'flaviorcfigueiredo@gmail.com'},
+{id:'c29',nome:'ARLEY DE OLIVEIRA SOUZA',bairro:'Osvaldo Cruz',end:'R. Serafim Carlos, 649',fone:'11963489431',cod:'09570410',email:'arley.ti@gmail.com'},
+{id:'c30',nome:'FERNANDA DE CARVALHO',bairro:'Santa Paula',end:'R. Gen. Osório, 363 Ed Marina Giacomo',fone:'11974411839',cod:'09571200',email:'fe.carvalhoscs@gmail.com'},
+{id:'c31',nome:'MAFALDA THEREZA PIZOL TIBERIO',bairro:'Santo Antônio',end:'R. Roma, 77',fone:'',cod:'09571220',email:''},
+{id:'c32',nome:'NATALIA SASSO CARDOSO',bairro:'Santa Paula',end:'R. N. S. de Fátima, 393',fone:'11953244569',cod:'09540100',email:'naty_sasso@yahoo.com.br'},
+{id:'c33',nome:'RODRIGO BARRIONUEVO FELICIANO',bairro:'Cerâmica',end:'Al. Porcelana, 55 Bl Live',fone:'11970845993',cod:'09531150',email:'feliciano.rodrigo@yahoo.com.br'},
+{id:'c34',nome:'ANDRE MUNARI',bairro:'Santa Paula',end:'R. Cnso. Lafayette, 450',fone:'11982925991',cod:'09550000',email:'andre.munari@terra.com.br'},
+{id:'c35',nome:'ERIK RODRIGUES SCHWARZ',bairro:'Santa Paula',end:'Av. Dr. Augusto de Toledo, 888',fone:'11981849673',cod:'09540080',email:'schwarz.erik@gmail.com'},
+{id:'c36',nome:'FABIO FERNANDES LOPES',bairro:'Santa Paula',end:'R. Alegre, 156 Bl B',fone:'11969071868',cod:'09550250',email:'fabiocristiane.lopes@gmail.com'},
+{id:'c37',nome:'FERNANDA MANSSINI INTATILO',bairro:'Cerâmica',end:'R. Ten. Antônio João, 581',fone:'11994542571',cod:'09530460',email:'fernanda.mi@hotmail.com'},
+{id:'c38',nome:'KARINA LAMES POLIZEL',bairro:'Santa Paula',end:'R. Gen. Osório, 392',fone:'11976484845',cod:'09541320',email:'cesarp@sompo.com.br'},
+{id:'c39',nome:'MARLENE RIBEIRO TONDATO',bairro:'Santa Paula',end:'R. Mal. Deodoro, 597',fone:'11997644227',cod:'09541300',email:'marlene.tondato1009@gmail.com'},
+{id:'c40',nome:'MARA REJANE MENDES BATISTA BARBOSA',bairro:'Santa Paula',end:'R. Nilo Peçanha, 100',fone:'11993329683',cod:'09540830',email:'mararejane@itaquera.sescsp.org.br'},
+{id:'c41',nome:'MARTA PEREIRA DOS SANTOS SILVA',bairro:'Santo Antônio',end:'Av. Goiás, 935',fone:'11944310329',cod:'09521310',email:'marta.ssilva2731@gmail.com'},
+{id:'c42',nome:'MILTON CARLOS LUZ CAVALCANTE',bairro:'Santa Paula',end:'R. Mal. Deodoro, 686',fone:'11983813235',cod:'09541300',email:'prof.miltonluz@gmail.com'},
+{id:'c43',nome:'LUCIANA DUENHA DIMITROV',bairro:'Santa Paula',end:'Av. Dr. Augusto de Toledo, 675',fone:'11992699212',cod:'09540080',email:'gabi.dimitriv@gmail.com'},
+{id:'c44',nome:'LILIAN MARIA BLACK',bairro:'Jardim São Caetano',end:'Av. Papa João XXIII, 541',fone:'11976266496',cod:'09581620',email:'lilianblack.48@gmail.com'},
+{id:'c45',nome:'TATIANE FORNAZIERI SERENA',bairro:'Santo Antônio',end:'R. São Jorge, 604 Bl B Monet',fone:'11982399292',cod:'09530250',email:'fabioserena@hotmail.com'},
+{id:'c46',nome:'DENIS HONORATO MOREIRA',bairro:'Osvaldo Cruz',end:'R. Osvaldo Cruz, 1762',fone:'11973040886',cod:'09540280',email:'denismoreira1002@gmail.com'},
+{id:'c47',nome:'MARCIO RODRIGO LUCHT PAULINO',bairro:'Osvaldo Cruz',end:'R. Rio de Janeiro, 335 Bl B Copacabana',fone:'11965824541',cod:'09540400',email:'msossa@gmail.com'},
+{id:'c48',nome:'SELMA LUISA CAVALCANTE CREPALDI',bairro:'Osvaldo Cruz',end:'R. São Jorge, 604 Bl B Monet',fone:'11952929844',cod:'09530250',email:'selmaluize@hotmail.com'},
+{id:'c49',nome:'RENATO VISPICO',bairro:'Santo Antônio',end:'R. Rafael Corrêa Sampaio, 545',fone:'',cod:'09540400',email:'renatovispico@gmail.com'},
+{id:'c50',nome:'ALVARO MAURICIO CABRAL PIZARRO',bairro:'Cerâmica',end:'Al. Porcelana, 70 Bl Infinity',fone:'11997585253',cod:'09530435',email:'almcpiz@gmail.com'},
+{id:'c51',nome:'FABIANA MAYUMI TANAKA',bairro:'Santa Paula',end:'Al. Porcelana, 55 Bl Infinity',fone:'11996171556',cod:'09531150',email:'fabi.2581@gmail.com'},
+{id:'c52',nome:'GISELE DE BRITO PIETROPAOLO',bairro:'Osvaldo Cruz',end:'Av. Dr. Augusto de Toledo, 1542',fone:'11983903362',cod:'09540080',email:'gisele.pietropaolo@gmail.com'},
+{id:'c53',nome:'NEIDE GOMES FIGUEIRA',bairro:'Santo Antônio',end:'R. Amazonas, 1720',fone:'11975397591',cod:'09540203',email:'marcia.zach@hotmail.com'},
+{id:'c54',nome:'ELISANGELA FARIA LEITE',bairro:'Santa Paula',end:'R. Maranhão, 344',fone:'11947873578',cod:'09541000',email:'elisangela.farialeite1977@gmail.com'},
+{id:'c55',nome:'ADRIANA PIMENTEL FONSECA',bairro:'Santa Paula',end:'R. Saldanha Marinho, 291 Ed Felicitar',fone:'11964712141',cod:'09551330',email:'dri.pimentel@uol.com.br'},
+{id:'c56',nome:'ANDERSON LUIS GONCALVES CAGNOTTO',bairro:'Santo Antônio',end:'R. Monte Alegre, 33',fone:'11940130893',cod:'09531110',email:'contato.cagnotto@gmail.com'},
+{id:'c57',nome:'ANDRE EMILIO BELO GARCIA',bairro:'Cerâmica',end:'R. Ten. Antônio João, 581',fone:'11994800246',cod:'09530460',email:'garcia.andre.ga@gmail.com'},
+{id:'c58',nome:'DOUGLAS ALAOR FRANCO MARTINS',bairro:'Cerâmica',end:'Al. Porcelana, 55 Bl Confort',fone:'11975411978',cod:'09531150',email:'douglasmartins@me.com'},
+{id:'c59',nome:'ROGERIO MARTINS CAVALCANTE',bairro:'Santa Paula',end:'R. Maranhão, 1506',fone:'11989099391',cod:'09541001',email:'rgomcavalcante@gmail.com'},
+{id:'c60',nome:'REGINALDO ESCARAMELLO',bairro:'Osvaldo Cruz',end:'R. Rio de Janeiro, 335 Bl A Ipanema',fone:'11998410962',cod:'09540400',email:'reginaldoescaramello@terra.com.br'},
+{id:'c61',nome:'ANDERSON DE ALMEIDA SOUZA',bairro:'Santa Paula',end:'R. Cnso. Lafayette, 109',fone:'11997690052',cod:'09550000',email:'aasouza1978@gmail.com'},
+{id:'c62',nome:'GRAZIELA BRIDES DOS SANTOS',bairro:'Santo Antônio',end:'R. Maranhão, 111',fone:'11941511119',cod:'09541000',email:'gbrides@gmail.com'},
+{id:'c63',nome:'CASSIANO RABELLO',bairro:'Cerâmica',end:'R. São Paulo, 931',fone:'11992145356',cod:'09530211',email:'cassiano.rabello@terra.com.br'},
+{id:'c64',nome:'MARIA APARECIDA MARTINS DA SILVA',bairro:'Santa Paula',end:'R. Saldanha Marinho, 291 Ed Fellicitar',fone:'11999544221',cod:'09551330',email:'cidashadon@gmail.com'},
+{id:'c65',nome:'ROSIMEIRE ROSA OLIVEIRA',bairro:'Osvaldo Cruz',end:'R. Calh. Ernesto Giuliano, 569 Bl 1',fone:'11965063734',cod:'09571425',email:'mulheresformosas@hotmail.com'},
+{id:'c66',nome:'TANIA REGINA MARTINEZ DO PRADO',bairro:'Santa Paula',end:'R. Wenceslau Brás, 231 Bl 1',fone:'11999197835',cod:'09541200',email:'taniamartinez@bb.com.br'}
 ];
+const CONTACTS_VERSION=2;
 
-function initContacts(){if(!S.contacts||!S.contacts.length)S.contacts=DEFAULT_CONTACTS.map(c=>({...c}));}
+function initContacts(){if(!S.contacts||!S.contacts.length||S.contactsVersion!==CONTACTS_VERSION){S.contacts=DEFAULT_CONTACTS.map(c=>({...c}));S.contactsVersion=CONTACTS_VERSION;save&&save();}}
 function render_contacts(){
   initContacts();
   const el=document.getElementById('v-contacts');if(!el)return;
@@ -1319,6 +1325,7 @@ function render_contacts(){
 const CT_COLORS=['#FF6B6B','#4ECDC4','#45B7D1','#96CEB4','#FFEAA7','#DDA0DD','#98D8C8','#F7DC6F','#BB8FCE','#85C1E9','#F1948A','#82E0AA','#F0B27A','#AED6F1','#D2B4DE','#A3E4D7'];
 function ctColor(name){let h=0;for(let i=0;i<name.length;i++)h=name.charCodeAt(i)+((h<<5)-h);return CT_COLORS[Math.abs(h)%CT_COLORS.length];}
 function ctInitials(name){const p=name.split(' ').filter(w=>w.length>2);return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():name.substring(0,2).toUpperCase();}
+function ctWa(f){let d=(f||'').replace(/\D/g,'');if(!d)return '';if(d.length>=12&&d.startsWith('55'))return d;if(d.length===10||d.length===11)return '55'+d;return d;}
 
 function renderContactsList(){
   const grid=document.getElementById('ctGrid');if(!grid)return;
@@ -1342,13 +1349,13 @@ function renderContactsList(){
     const col=ctColor(c.nome||'');
     const ini=ctInitials(c.nome||'');
     const emailLink=c.email?`<a class="ct-action email-btn" href="mailto:${c.email}" title="Enviar e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> E-mail</a>`:'';
-    const whatsLink=c.fone?`<a class="ct-action whats-btn" href="https://wa.me/55${c.fone.replace(/\D/g,'')}" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> WhatsApp</a>`:'';
-    const phoneLink=c.fone?`<a class="ct-action phone-btn" href="tel:${c.fone}" title="Ligar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Ligar</a>`:'';
+    const whatsLink=c.fone?`<a class="ct-action whats-btn" href="https://wa.me/${ctWa(c.fone)}" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg> WhatsApp</a>`:'';
+    const phoneLink=c.fone?`<a class="ct-action phone-btn" href="tel:${c.fone.replace(/[^0-9+]/g,'')}" title="Ligar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Ligar</a>`:'';
     return`<div class="ct-card">
       <div class="ct-card-top">
         <div class="ct-avatar" style="background:${col}">${ini}</div>
         <div class="ct-card-name"><h4>${c.nome}</h4><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> ${c.bairro||'—'}</p></div>
-        <button class="btn btn-icon btn-sm" onclick="WB.delContact('${c.id}')" title="Excluir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+        <div style="display:flex;gap:4px"><button class="btn btn-icon btn-sm" onclick="WB.editContact('${c.id}')" title="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="btn btn-icon btn-sm" onclick="WB.delContact('${c.id}')" title="Excluir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button></div>
       </div>
       <div class="ct-card-details">
         ${c.end?`<div class="ct-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>${c.end}</span></div>`:''}
@@ -1383,6 +1390,35 @@ function saveNewContact(){
   toast('Contato adicionado com sucesso!','success');
 }
 function delContact(id){if(!confirm('Excluir este contato?'))return;S.contacts=S.contacts.filter(c=>c.id!==id);save();renderContactsList();toast('Contato excluído','info');}
+
+function editContact(id){
+  const c=S.contacts.find(x=>x.id===id);if(!c)return;
+  const v=s=>(s||'').replace(/"/g,'&quot;');
+  const html=`<div style="display:flex;flex-direction:column;gap:10px">
+    <input id="ctEdNome" class="conv-input" placeholder="Nome completo" value="${v(c.nome)}">
+    <input id="ctEdBairro" class="conv-input" placeholder="Bairro" value="${v(c.bairro)}">
+    <input id="ctEdEnd" class="conv-input" placeholder="Endereço" value="${v(c.end)}">
+    <input id="ctEdFone" class="conv-input" placeholder="Telefone (só números, ex: 11987654321)" value="${v(c.fone)}">
+    <input id="ctEdEmail" class="conv-input" placeholder="E-mail" value="${v(c.email)}">
+    <input id="ctEdCod" class="conv-input" placeholder="CEP" value="${v(c.cod)}">
+    <button class="btn btn-primary" onclick="WB.saveEditContact('${id}')">Salvar Alterações</button>
+  </div>`;
+  showModal('Editar Contato',html);
+}
+function saveEditContact(id){
+  const c=S.contacts.find(x=>x.id===id);if(!c)return;
+  const nome=document.getElementById('ctEdNome')?.value.trim();
+  if(!nome){toast('Informe o nome do contato','error');return;}
+  c.nome=nome;
+  c.bairro=document.getElementById('ctEdBairro')?.value.trim()||'';
+  c.end=document.getElementById('ctEdEnd')?.value.trim()||'';
+  c.fone=document.getElementById('ctEdFone')?.value.trim()||'';
+  c.email=document.getElementById('ctEdEmail')?.value.trim()||'';
+  c.cod=document.getElementById('ctEdCod')?.value.trim()||'';
+  save();renderContactsList();
+  document.getElementById('modalOv')?.classList.remove('active');
+  toast('Contato atualizado!','success');
+}
 
 /* 3D SHOWCASE — Vitrine Imobiliária para Corretores */
 function render_showcase(){const el=document.getElementById('v-showcase');if(!el)return;
@@ -1467,7 +1503,7 @@ toggleMT,mtTab,calcP,pomoMode,pomoToggle,pomoReset,calN,doConv,addQN,delQN,rende
 toggleAI,aiAction,
 globalSearch,openSearchResult,
 addFloatingNote,updateFN,removeFN,
-render_contacts,renderContactsList,searchContacts,filterContacts,addContact,saveNewContact,delContact,
+render_contacts,renderContactsList,searchContacts,filterContacts,addContact,saveNewContact,delContact,editContact,saveEditContact,
 render_showcase,addShowcaseItem,shareShowcase,setBgColor};
 })();
 document.addEventListener('DOMContentLoaded',WB.init);
